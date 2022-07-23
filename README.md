@@ -61,5 +61,13 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ☑️ Animate monster
 
+### Day 4 - July 25, 2022
+
+☑️ Give monster hurtbox
+
+☑️ Give user hitbox
+
+☑️ Climb rope
+
 
 
