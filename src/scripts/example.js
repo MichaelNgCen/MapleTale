@@ -1,3 +1,5 @@
+
+
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -5,25 +7,34 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const gravity = 1.5;
+const standingLeft = new Image();
+standingLeft.src = './src/media/sprite/sl.png'
 
 class Player{
     constructor() {
         this.postion = {
             x: 40,
-            y: 630
+            y: 520
         }
         this.velocity = {
             x: 0,
             y: 0
         }
-        this.width = 50;
-        this.height = 50;
+        this.width = 66;
+        this.height = 150;
+
+        this.image = standingLeft
+        this.frames = 0
     }
     draw() {
-        ctx.fillRect(this.postion.x, this.postion.y, this.width, this.height);
+        // ctx.fillRect(this.postion.x, this.postion.y, this.width, this.height);
+        ctx.drawImage(this.image, 68 * this.frames, 0, 68, 81,
+            this.postion.x, this.postion.y, this.width, this.height);
     }
 
     update() {
+        this.frames++
+        if (this.frames > 4) this.frames = 0;
         this.postion.y += this.velocity.y;
         this.draw();
         if (this.postion.y + this.height + this.velocity.y <= canvas.height - 140) this.velocity.y += gravity;
