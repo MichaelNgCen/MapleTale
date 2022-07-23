@@ -34,7 +34,9 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 <img width="1026" alt="Screen Shot 2022-07-21 at 8 17 34 PM" src="https://user-images.githubusercontent.com/38708266/180335811-ce64898c-d4e1-4f98-8cb8-b87b53dc3102.png">
 
 ### Day 1 - July 22, 2022
-☑️ Create background
+✅ Create background
 
-☑️ User Input 
+✅ User input 
+
+✅ Platform collision
 
