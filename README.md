@@ -31,7 +31,7 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ✅ Create wireframe
 
 
-<img width="513" alt="Screen Shot 2022-07-21 at 8 17 34 PM" src="https://user-images.githubusercontent.com/38708266/180335811-ce64898c-d4e1-4f98-8cb8-b87b53dc3102.png">
+<img width="550" alt="Screen Shot 2022-07-21 at 8 17 34 PM" src="https://user-images.githubusercontent.com/38708266/180335811-ce64898c-d4e1-4f98-8cb8-b87b53dc3102.png">
 
 ### Day 1 - July 22, 2022
 ✅ Create background
@@ -42,7 +42,7 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Platform collision
 
-<img width="718" alt="Screen Shot 2022-07-22 at 10 21 41 PM" src="https://user-images.githubusercontent.com/38708266/180586997-94bc2ca9-a6a3-4f0e-b2ce-1c2fcef38cad.png">
+<img width="550" alt="Screen Shot 2022-07-22 at 10 21 41 PM" src="https://user-images.githubusercontent.com/38708266/180586997-94bc2ca9-a6a3-4f0e-b2ce-1c2fcef38cad.png">
 
 ### Day 2 - July 23, 2022
 ☑️ Add Spirte
