@@ -51,3 +51,13 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ☑️ Animation 
 
+### Day 3 - July 24, 2022
+
+☑️ Create monsters
+
+☑️ Add Sprite to monster
+
+☑️ Animate monster
+
+
+
