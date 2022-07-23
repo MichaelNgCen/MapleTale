@@ -36,7 +36,9 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ### Day 1 - July 22, 2022
 ✅ Create background
 
-✅ User input 
+✅ Create player
+
+✅ Move player with user input
 
 ✅ Platform collision
 
