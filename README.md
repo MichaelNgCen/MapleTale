@@ -45,11 +45,11 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 <img width="550" alt="Screen Shot 2022-07-22 at 10 21 41 PM" src="https://user-images.githubusercontent.com/38708266/180586997-94bc2ca9-a6a3-4f0e-b2ce-1c2fcef38cad.png">
 
 ### Day 2 - July 23, 2022
-☑ Make Spirte
+✅ Make user's spirte
 
-☑️ Add Spirte
+✅ Add Spirte
 
-☑️ Animation 
+⚠️ Animation 
 
 ### Day 3 - July 24, 2022
 
