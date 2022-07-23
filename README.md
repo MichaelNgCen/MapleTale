@@ -40,3 +40,8 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Platform collision
 
+### Day 2 - July 23, 2022
+☑️ Add Spirte
+
+☑️ Animation 
+
