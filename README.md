@@ -47,9 +47,11 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ### Day 2 - July 23, 2022
 ✅ Make user's spirte
 
-✅ Add Spirte
+✅ Add user's spirte
 
-⚠️ Animation 
+⚠️ Animate user (need to fix the math for the fps)
+
+<img width="1426" alt="Screen Shot 2022-07-23 at 7 25 13 PM" src="https://user-images.githubusercontent.com/38708266/180626014-82c08408-3709-421d-b93c-2da642ddfa2c.png">
 
 ### Day 3 - July 24, 2022
 
