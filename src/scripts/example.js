@@ -57,7 +57,7 @@ class Player{
                 right: proneRight, cropWidth: 82, width: 50, height: 40  
             },
             attackRight: {
-                right: attackRight, cropWidth: 72, width: 67.5, height: 80  
+                right: attackRight, cropWidth: 71.5, width: 67.5, height: 80  
             }
             
         }
