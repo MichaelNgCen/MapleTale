@@ -49,7 +49,7 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Add user's spirte
 
-⚠️ Animate user (need to fix the math a bit)
+⚠️ Animate user (a bit janky)
 
 ⚠️ Add background music (only plays after refresh?)
 
