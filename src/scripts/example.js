@@ -8,7 +8,10 @@ canvas.height = window.innerHeight;
 
 const gravity = 1.5;
 const standingLeft = new Image();
-standingLeft.src = './src/media/sprite/standRight.png'
+standingLeft.src = './src/media/sprite/standLeft.png'
+
+const standingRight = new Image();
+standingRight.src = './src/media/sprite/standRight.png'
 
 const walkingLeft = new Image();
 walkingLeft.src = './src/media/sprite/walkLeft.png'
@@ -22,6 +25,9 @@ jumpRight.src = './src/media/sprite/jumpRight.png'
 const proneRight = new Image();
 proneRight.src = './src/media/sprite/proneRight.png'
 
+const proneLeft = new Image();
+proneLeft.src = './src/media/sprite/proneLeft.png'
+
 const attackRight = new Image();
 attackRight.src = './src/media/sprite/attackRight.png'
 
@@ -29,40 +35,40 @@ class Player{
     constructor() {
         this.postion = {
             x: 30,
-            y: 590
+            y: 610
         }
         this.velocity = {
             x: 0,
             y: 0
         }
-        this.width = 61.5;
+        this.width = 60.5;
         this.height = 86
 
         this.image = standingLeft
         this.frames = 1
         this.sprites = {
             stand: {
-                left: standingLeft, cropWidth: 62.5, width: 67.5, height: 86
+                left: standingLeft, cropWidth: 60, width: 60, height: 86,
+                right: standingRight, cropWidth: 60, width: 60.9, height: 86
             },
-            walkLeft: {
-                left: walkingLeft, cropWidth: 61.8, width: 67.5, height: 86
+            walk: {
+                left: walkingLeft, cropWidth: 61.8, width: 60.5, height: 86,
+                right: walkingRight, cropWidth: 61.8, width: 60.5, height: 86
             },
-            walkRight: {
-                right: walkingRight, cropWidth: 61.8, width: 67.5, height: 86
+            jump: {
+                right: jumpRight, cropWidth: 55, width: 67.5, height: 86,  
             },
-            jumpRight: {
-                right: jumpRight, cropWidth: 55, width: 67.5, height: 86  
-            },
-            proneRight: {
-                right: proneRight, cropWidth: 82, width: 50, height: 40  
+            prone: {
+                right: proneRight, cropWidth: 82, width: 50, height: 40,  
+                left: proneLeft, cropWidth: 82, width: 50, height: 40
             },
             attackRight: {
-                right: attackRight, cropWidth: 71.5, width: 67.5, height: 80  
+                right: attackRight, cropWidth: 67.3, width: 67.5, height: 80  
             }
             
         }
         this.currentSprite = this.sprites.stand.left
-        this.currentCropWidth = 61.5
+        this.currentCropWidth = 60.8
     }
     draw() {
         // ctx.fillRect(this.postion.x, this.postion.y, this.width, this.height);
@@ -71,10 +77,10 @@ class Player{
     }
 
     update() {
-        this.frames++
-        if (this.frames > 9) this.frames = 1;
-        this.postion.y += this.velocity.y;
+        // (this.frames <= 1) ? this.frames++ : this.frames = 1; // not working
         this.draw();
+        this.postion.x += this.velocity.x;
+        this.postion.y += this.velocity.y;
         if (this.postion.y + this.height + this.velocity.y <= canvas.height - 140) this.velocity.y += gravity;
         else this.velocity.y = 0;
     }
@@ -85,7 +91,6 @@ class Platform {
         this.position = {
             x,
             y
-
         }
         this.width = width;
         this.height = height;
@@ -140,34 +145,37 @@ addEventListener('keydown', ({key}) => {
         case "a":
             // console.log('left');
             keys.left.pressed = true;
-            player.currentSprite = player.sprites.walkLeft.left;
-            player.currentCropWidth = player.sprites.walkLeft.cropWidth 
-            player.width = player.sprites.walkLeft.width;
+            player.currentSprite = player.sprites.walk.left;
+            player.currentCropWidth = player.sprites.walk.cropWidth 
+            player.width = player.sprites.walk.width;
+            console.log(player.width);
             break;
         case "d":
             // console.log('right');
             keys.right.pressed = true;
-            player.currentSprite = player.sprites.walkRight.right;
-            player.currentCropWidth = player.sprites.walkRight.cropWidth
-            player.width = player.sprites.walkRight.width
+            player.currentSprite = player.sprites.walk.right;
+            player.currentCropWidth = player.sprites.walk.cropWidth
+            player.width = player.sprites.walk.width
+            console.log(player.width);
             break;
         case "w":
             // console.log('up');
-            player.velocity.y = -20;
-            player.currentSprite = player.sprites.jumpRight.right;
-            player.currentCropWidth = player.sprites.jumpRight.cropWidth
-            player.width = player.sprites.jumpRight.width
+            player.velocity.y = -15;
+            player.currentSprite = player.sprites.jump.right;
+            player.currentCropWidth = player.sprites.jump.cropWidth
+            player.width = player.sprites.jump.width
             break;
         case "s":
-            player.currentSprite = player.sprites.proneRight.right;
-            player.currentCropWidth = player.sprites.proneRight.cropWidth
-            player.width = player.sprites.proneRight.width
+            player.currentSprite = player.sprites.prone.right;
+            player.currentCropWidth = player.sprites.prone.cropWidth
+            player.width = player.sprites.prone.width
             break;
         case "j":
-            console.log('attack');
+            // console.log('attack');
             player.currentSprite = player.sprites.attackRight.right;
             player.currentCropWidth = player.sprites.attackRight.cropWidth
             player.width = player.sprites.attackRight.width
+            
             break;
     }
 }) 
@@ -175,19 +183,30 @@ addEventListener('keydown', ({key}) => {
 addEventListener('keyup', ({key}) => {
     switch (key) {
         case "a":
-            console.log('left');
+            // console.log('left');
             keys.left.pressed = false;
+            player.currentSprite = player.sprites.stand.left;
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
             break;
         case "d":
-            console.log('right');
+            // console.log('right');
             keys.right.pressed = false;
+            player.currentSprite = player.sprites.stand.right;
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
             break;
         case "w":
-            console.log('up');
             player.velocity.y = 0;
+            player.currentSprite = player.sprites.stand.right;
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
             break;
         case "s":
-            console.log('down');
+            player.currentSprite = player.sprites.stand.right;
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
+            // console.log('down');
             break;
     }
 }) 
