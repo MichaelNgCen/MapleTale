@@ -57,7 +57,9 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ☑️ Create monsters
 
-☑️ Add Sprite to monster
+☑️ Make monsters's spirte
+
+☑️ Add monsters's sprite
 
 ☑️ Animate monster
 
@@ -68,6 +70,26 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ☑️ Give user hitbox
 
 ☑️ Climb rope
+
+### Day 5 - July 26, 2022
+
+☑️ Add BGM
+
+☑️ Add health bar
+
+☑️ Add user's details
+
+### Day 5 - July 26, 2022
+### Day 6 - July 27, 2022
+### Day 7 - July 27, 2022
+### Day 8 - July 28, 2022
+
+
+
+
+
+
+
 
 
 
