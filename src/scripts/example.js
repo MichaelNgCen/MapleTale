@@ -56,11 +56,11 @@ class Player{
                 right: walkingRight, cropWidth: 61.8, width: 60.5, height: 86
             },
             jump: {
-                right: jumpRight, cropWidth: 55, width: 67.5, height: 86,  
+                right: jumpRight, cropWidth: 55, width: 60.5, height: 86,  
             },
             prone: {
-                right: proneRight, cropWidth: 82, width: 50, height: 40,  
-                left: proneLeft, cropWidth: 82, width: 50, height: 40
+                right: proneRight, cropWidth: 82, width: 45, height: 40,  
+                left: proneLeft, cropWidth: 82, width: 45, height: 40
             },
             attackRight: {
                 right: attackRight, cropWidth: 67.3, width: 67.5, height: 80  
@@ -210,3 +210,31 @@ addEventListener('keyup', ({key}) => {
             break;
     }
 }) 
+
+
+
+class Monster{
+
+    constructor({x, y, width, height}) {
+        this.position = {
+            x,
+            y
+        }
+        this.width = width;
+        this.height = height;
+    }
+    draw() {
+        ctx.fillStyle = '';
+        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    }
+
+    update() {
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
+    }
+
+    handleCollision() {
+        if (player.postion.y + player.height <= this.position.y && player.postion.y + player.height+player.velocity.y >= this.position.y && player.postion.x + player.width >= this.position.x && player.postion.x <= this.position.x + this.width) player.velocity.y = 0;
+
+    }
+}
