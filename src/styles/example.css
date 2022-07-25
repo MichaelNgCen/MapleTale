@@ -1,6 +1,4 @@
 #background {
-    height: 100%; /* Full height */
-    width: 100%; /* 100% Full-screen */
     position: fixed;  /* Stay in place */
     z-index: -1; /* Ensure div tag stays behind content */
     top: 0; /* Stay at the top */
@@ -9,3 +7,15 @@
     pointer-events: none;  /* Disable pointer events */
 }
 
+canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
