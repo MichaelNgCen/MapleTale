@@ -30,7 +30,10 @@ const attackRight = new Image();
 attackRight.src = './src/media/sprite/attackRight.png'
 
 const pigIdleLeft = new Image();
-pigIdleLeft.src = './src/media/sprite/pigIdleLeft.png'
+pigIdleLeft.src = './src/media/sprite/pig1.png'
+
+const slime = new Image();
+slime.src = './src/media/sprite/slimeIdle.png'
 
 class Player{
     constructor() {
@@ -100,7 +103,7 @@ class Platform {
     }
 }
 
-class Monster {
+class Monster1 {
     constructor() {
         this.image = pigIdleLeft
         this.frames = 0
@@ -110,12 +113,35 @@ class Monster {
             }
         }
         this.currentSprite = this.sprites.pig.left
-        this.currentCropWidth = 255
+        this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 800, 305, this.currentCropWidth, this.currentSprite.height);
-        ctx.drawImage(this.currentSprite, 800, 550, this.currentCropWidth, this.currentSprite.height);
-        ctx.drawImage(this.currentSprite, 800, 65, this.currentCropWidth, this.currentSprite.height);
+        ctx.drawImage(this.currentSprite, 600, 305, this.currentCropWidth, this.currentSprite.height); // middle pig
+        ctx.drawImage(this.currentSprite, 950, 550, this.currentCropWidth, this.currentSprite.height); // bottom pig
+        ctx.drawImage(this.currentSprite, 800, 65, this.currentCropWidth, this.currentSprite.height); // top pig
+    }
+
+    update() {
+        this.draw();
+    }
+}
+
+class Monster2 {
+    constructor() {
+        this.image = slime
+        this.frames = 0
+        this.sprites = {
+            slime: {
+                left: slime, cropWidth: 25, width: 6, height: 6,
+            }
+        }
+        this.currentSprite = this.sprites.slime.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle pig
+        ctx.drawImage(this.currentSprite, 400, 470, this.currentCropWidth, this.currentSprite.height - 100); // bottom pig
+        ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top pig
     }
 
     update() {
@@ -153,7 +179,8 @@ const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // firs
     new Platform({x:0, y: 615, width: 1300, height: 0}), // floor?
 ]; 
 
-const monsters = new Monster();
+const monsters1 = new Monster1();
+const monsters2 = new Monster2();
 
 const keys = {
     right: {
@@ -172,11 +199,10 @@ function animate() {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.update();
-    monsters.update();
-    // monsters.forEach(monster => monster.update());
+    monsters1.update();
+    monsters2.update();
     platforms.forEach(platform => platform.draw());
     edges.forEach(edge => edge.draw());
-    // monsters.forEach(monster => monster.draw());
     if (keys.right.pressed) player.postion.x += 5;
     if (keys.left.pressed) player.postion.x -= 5;
     platforms.forEach(platform => {
