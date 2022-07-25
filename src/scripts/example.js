@@ -1,5 +1,3 @@
-
-
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -96,12 +94,29 @@ class Platform {
         this.height = height;
     }
     draw() {
-        ctx.fillStyle = '';
+        ctx.fillStyle = 'red';
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }
+
+class Monster {
+    constructor({x, y, width, height}) {
+        this.position = {
+            x,
+            y
+        }
+        this.width = width;
+        this.height = height;
+    }
+    draw() {
+        ctx.fillStyle = 'black';
+        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    }
+}
+
+
 const player = new Player();
-const platforms = [new Platform({x:285, y: 620, width: 100, height: 0}), // first haystack
+const platforms = [new Platform({x:285, y: 620, width: 100, height: 0  }), // first haystack
     new Platform({x:100, y: 550, width: 140, height: 0}), // first edge platform 
     new Platform({x:100, y: 480, width: 140, height: 0}), // second edge platform
     new Platform({x:290, y: 410, width: 1200, height: 0}), // second floor?
@@ -113,6 +128,13 @@ const platforms = [new Platform({x:285, y: 620, width: 100, height: 0}), // firs
     new Platform({x:300, y: 0, width: 140, height: 0}), // fifth edge platform
     new Platform({x:1400, y: 65, width: 100, height: 0}) // fourth haystack?
 ]; 
+const monsters = [new Monster({x:850, y: 90, width: 50, height: 50}), // first monster
+    new Monster({x:950, y: 90, width: 50, height: 50}), // second monster
+    new Monster({x:950, y: 360, width: 50, height: 50}), // third monster
+    new Monster({x:850, y: 360, width: 50, height: 50}), // fourth monster
+    new Monster({x:850, y: 640, width: 50, height: 50}), // fifth monster
+    new Monster({x:950, y: 640, width: 50, height: 50}), // sixth monster
+];
 
 const keys = {
     right: {
@@ -129,11 +151,16 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.update();
     platforms.forEach(platform => platform.draw());
+    monsters.forEach(monster => monster.draw());
     if (keys.right.pressed) player.postion.x += 5;
     if (keys.left.pressed) player.postion.x -= 5;
     platforms.forEach(platform => {
     if (player.postion.y + player.height <= platform.position.y && player.postion.y + player.height+player.velocity.y >= platform.position.y && player.postion.x + player.width >= platform.position.x && player.postion.x <= platform.position.x + platform.width) player.velocity.y = 0;
     })
+    // monsters.forEach(monster => {
+    // if (player.postion.y + player.height <= monster.position.y && player.postion.y + player.height+player.velocity.y >= monster.position.y && player.postion.x + player.width >= monster.position.x && player.postion.x <= monster.position.x + monster.width) player.velocity.x = 0;
+    // }
+    // )   // take damage if hit by monster
 }
 
 
@@ -216,7 +243,7 @@ addEventListener('keyup', ({key}) => {
     }
 }) 
 
-class Monster {
+class Enemy {
     constructor({x, y, width, height}) {
         this.position = {
             x,
@@ -226,17 +253,14 @@ class Monster {
         this.height = height;
     }
     draw() {
-        ctx.fillStyle = '';
+        ctx.fillStyle = 'red';
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }
-const monsters = [new Monster({x:100, y: 100, width: 100, height: 100}),
-    new Monster({x:200, y: 200, width: 100, height: 100}),
-    new Monster({x:300, y: 300, width: 100, height: 100}),
-    new Monster({x:400, y: 400, width: 100, height: 100}),
-    new Monster({x:500, y: 500, width: 100, height: 100}),]
+const enemies = [new Enemy({x:100, y: 100, width: 100, height: 100}),
+    new Enemy({x:200, y: 200, width: 100, height: 100}),
+    new Enemy({x:300, y: 300, width: 100, height: 100}),
+    new Enemy({x:400, y: 400, width: 100, height: 100}),]
 
-monsters.forEach(monster => {
-    monster.draw();
-}
-)
+    enemies.forEach(enemy => enemy.draw());
+    console.log(enemies);
