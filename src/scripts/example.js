@@ -29,6 +29,9 @@ proneLeft.src = './src/media/sprite/proneLeft.png'
 const attackRight = new Image();
 attackRight.src = './src/media/sprite/attackRight.png'
 
+const attackLeft = new Image();
+attackLeft.src = './src/media/sprite/attackLeft.png'
+
 const pigIdleLeft = new Image();
 pigIdleLeft.src = './src/media/sprite/pig1.png'
 
@@ -66,8 +69,9 @@ class Player{
                 right: proneRight, cropWidth: 82, width: 41, height: 40,  
                 left: proneLeft, cropWidth: 82, width: 41, height: 40
             },
-            attackRight: {
-                right: attackRight, cropWidth: 67.3, width: 67.3, height: 80  
+            attack: {
+                right: attackRight, cropWidth: 67.3, width: 67.3, height: 80, 
+                left: attackLeft, cropWidth: 67.3, width: 67.3, height: 80 
             }
             
         }
@@ -246,10 +250,14 @@ addEventListener('keydown', ({key}) => {
             player.width = player.sprites.prone.width
             break;
         case "j":
-            player.currentSprite = player.sprites.attackRight.right;
-            player.currentCropWidth = player.sprites.attackRight.cropWidth
-            player.width = player.sprites.attackRight.width
-            
+            player.currentSprite = player.sprites.attack.right;
+            player.currentCropWidth = player.sprites.attack.cropWidth
+            player.width = player.sprites.attack.width
+            break;
+        case "k":
+            player.currentSprite = player.sprites.attack.left;
+            player.currentCropWidth = player.sprites.attack.cropWidth
+            player.width = player.sprites.attack.width
             break;
     }
 }) 
@@ -281,6 +289,11 @@ addEventListener('keyup', ({key}) => {
             break;
         case "j":
             player.currentSprite = player.sprites.stand.right;
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
+            break;
+        case "k":
+            player.currentSprite = player.sprites.stand.left;
             player.currentCropWidth = player.sprites.stand.cropWidth
             player.width = player.sprites.stand.width
             break;
