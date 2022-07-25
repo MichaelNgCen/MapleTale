@@ -49,21 +49,21 @@ class Player{
         this.sprites = {
             stand: {
                 left: standingLeft, cropWidth: 60, width: 60, height: 86,
-                right: standingRight, cropWidth: 60, width: 60.9, height: 86
+                right: standingRight, cropWidth: 60, width: 60, height: 86
             },
             walk: {
-                left: walkingLeft, cropWidth: 61.8, width: 60.5, height: 86,
-                right: walkingRight, cropWidth: 61.8, width: 60.5, height: 86
+                left: walkingLeft, cropWidth: 61.8, width: 61.8, height: 86,
+                right: walkingRight, cropWidth: 61.8, width: 61.8, height: 86
             },
             jump: {
-                right: jumpRight, cropWidth: 55, width: 60.5, height: 86,  
+                right: jumpRight, cropWidth: 55, width: 55, height: 86,  
             },
             prone: {
-                right: proneRight, cropWidth: 82, width: 45, height: 40,  
-                left: proneLeft, cropWidth: 82, width: 45, height: 40
+                right: proneRight, cropWidth: 82, width: 41, height: 40,  
+                left: proneLeft, cropWidth: 82, width: 41, height: 40
             },
             attackRight: {
-                right: attackRight, cropWidth: 67.3, width: 67.5, height: 80  
+                right: attackRight, cropWidth: 67.3, width: 67.3, height: 80  
             }
             
         }
@@ -77,7 +77,7 @@ class Player{
     }
 
     update() {
-        // (this.frames <= 1) ? this.frames++ : this.frames = 1; // not working
+        (this.frames <= 10) ? this.frames++ : this.frames = 1; // not working
         this.draw();
         this.postion.x += this.velocity.x;
         this.postion.y += this.velocity.y;
@@ -100,7 +100,6 @@ class Platform {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }
-
 const player = new Player();
 const platforms = [new Platform({x:285, y: 620, width: 100, height: 0}), // first haystack
     new Platform({x:100, y: 550, width: 140, height: 0}), // first edge platform 
@@ -208,13 +207,16 @@ addEventListener('keyup', ({key}) => {
             player.width = player.sprites.stand.width
             // console.log('down');
             break;
+        case "j":
+            // console.log('attack');
+            player.currentSprite = player.sprites.stand.right;
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
+            break;
     }
 }) 
 
-
-
-class Monster{
-
+class Monster {
     constructor({x, y, width, height}) {
         this.position = {
             x,
@@ -227,14 +229,14 @@ class Monster{
         ctx.fillStyle = '';
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
-
-    update() {
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
-    }
-
-    handleCollision() {
-        if (player.postion.y + player.height <= this.position.y && player.postion.y + player.height+player.velocity.y >= this.position.y && player.postion.x + player.width >= this.position.x && player.postion.x <= this.position.x + this.width) player.velocity.y = 0;
-
-    }
 }
+const monsters = [new Monster({x:100, y: 100, width: 100, height: 100}),
+    new Monster({x:200, y: 200, width: 100, height: 100}),
+    new Monster({x:300, y: 300, width: 100, height: 100}),
+    new Monster({x:400, y: 400, width: 100, height: 100}),
+    new Monster({x:500, y: 500, width: 100, height: 100}),]
+
+monsters.forEach(monster => {
+    monster.draw();
+}
+)
