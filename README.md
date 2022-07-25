@@ -66,7 +66,7 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ### Day 4 - July 25, 2022
 ✅ Add monsters's sprite
 
-☑ Collison map's edge
+✅ Collison map's edge
 
 ☑ Collison monster
 
