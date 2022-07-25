@@ -29,6 +29,9 @@ proneLeft.src = './src/media/sprite/proneLeft.png'
 const attackRight = new Image();
 attackRight.src = './src/media/sprite/attackRight.png'
 
+const pigIdleLeft = new Image();
+pigIdleLeft.src = './src/media/sprite/pigIdleLeft.png'
+
 class Player{
     constructor() {
         this.postion = {
@@ -43,7 +46,7 @@ class Player{
         this.height = 86
 
         this.image = standingLeft
-        this.frames = 1
+        this.frames = 0
         this.sprites = {
             stand: {
                 left: standingLeft, cropWidth: 60, width: 60, height: 86,
@@ -75,7 +78,10 @@ class Player{
     }
 
     update() {
-        (this.frames <= 10) ? this.frames++ : this.frames = 1; // not working
+        // this.frames += 0.1;
+        // if (this.frames > 10) {
+        //     this.frames = 0;
+        // }
         this.draw();
         this.postion.x += this.velocity.x;
         this.postion.y += this.velocity.y;
@@ -100,23 +106,31 @@ class Platform {
 }
 
 class Monster {
-    constructor({x, y, width, height}) {
-        this.position = {
-            x,
-            y
+    constructor() {
+        this.image = pigIdleLeft
+        this.frames = 0
+        this.sprites = {
+            pig: {
+                left: pigIdleLeft, cropWidth: 25, width: 6, height: 6,
+            }
         }
-        this.width = width;
-        this.height = height;
+        this.currentSprite = this.sprites.pig.left
+        this.currentCropWidth = 255
     }
     draw() {
-        ctx.fillStyle = 'black';
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        ctx.drawImage(this.currentSprite, 800, 350, this.currentCropWidth, this.currentSprite.height);
+        ctx.drawImage(this.currentSprite, 800, 630, this.currentCropWidth, this.currentSprite.height);
+        ctx.drawImage(this.currentSprite, 800, 80, this.currentCropWidth, this.currentSprite.height);
+    }
+
+    update() {
+        // (this.frames <= 1) ? (this.frames+= 0.1) : this.frames = 0; // not working
+        this.draw();
     }
 }
 
-
 const player = new Player();
-const platforms = [new Platform({x:285, y: 620, width: 100, height: 0  }), // first haystack
+const platforms = [new Platform({x:285, y: 620, width: 100, height: 0}), // first haystack
     new Platform({x:100, y: 550, width: 140, height: 0}), // first edge platform 
     new Platform({x:100, y: 480, width: 140, height: 0}), // second edge platform
     new Platform({x:290, y: 410, width: 1200, height: 0}), // second floor?
@@ -125,16 +139,13 @@ const platforms = [new Platform({x:285, y: 620, width: 100, height: 0  }), // fi
     new Platform({x:200, y: 205, width: 140, height: 0}), // fourth edge platform
     new Platform({x:390, y: 135, width: 1200, height: 0}), // third floor?
     new Platform({x:460, y: 65, width: 100, height: 0}), // third haystack
-    new Platform({x:300, y: 0, width: 140, height: 0}), // fifth edge platform
+    new Platform({x:300, y: 10, width: 140, height: 0}), // fifth edge platform
     new Platform({x:1400, y: 65, width: 100, height: 0}) // fourth haystack?
 ]; 
-const monsters = [new Monster({x:850, y: 90, width: 50, height: 50}), // first monster
-    new Monster({x:950, y: 90, width: 50, height: 50}), // second monster
-    new Monster({x:950, y: 360, width: 50, height: 50}), // third monster
-    new Monster({x:850, y: 360, width: 50, height: 50}), // fourth monster
-    new Monster({x:850, y: 640, width: 50, height: 50}), // fifth monster
-    new Monster({x:950, y: 640, width: 50, height: 50}), // sixth monster
-];
+
+const monsters = new Monster();
+
+console.log(monsters)
 
 const keys = {
     right: {
@@ -150,17 +161,15 @@ function animate() {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.update();
+    monsters.update();
+    // monsters.forEach(monster => monster.update());
     platforms.forEach(platform => platform.draw());
-    monsters.forEach(monster => monster.draw());
+    // monsters.forEach(monster => monster.draw());
     if (keys.right.pressed) player.postion.x += 5;
     if (keys.left.pressed) player.postion.x -= 5;
     platforms.forEach(platform => {
     if (player.postion.y + player.height <= platform.position.y && player.postion.y + player.height+player.velocity.y >= platform.position.y && player.postion.x + player.width >= platform.position.x && player.postion.x <= platform.position.x + platform.width) player.velocity.y = 0;
     })
-    // monsters.forEach(monster => {
-    // if (player.postion.y + player.height <= monster.position.y && player.postion.y + player.height+player.velocity.y >= monster.position.y && player.postion.x + player.width >= monster.position.x && player.postion.x <= monster.position.x + monster.width) player.velocity.x = 0;
-    // }
-    // )   // take damage if hit by monster
 }
 
 
@@ -177,7 +186,7 @@ addEventListener('keydown', ({key}) => {
             console.log(player.width);
             break;
         case "d":
-            // console.log('right');
+            console.log('right');
             keys.right.pressed = true;
             player.currentSprite = player.sprites.walk.right;
             player.currentCropWidth = player.sprites.walk.cropWidth
@@ -185,7 +194,7 @@ addEventListener('keydown', ({key}) => {
             console.log(player.width);
             break;
         case "w":
-            // console.log('up');
+            console.log('up');
             player.velocity.y = -15;
             player.currentSprite = player.sprites.jump.right;
             player.currentCropWidth = player.sprites.jump.cropWidth

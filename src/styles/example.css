@@ -1,13 +1,11 @@
 #background {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    display: block;
-    pointer-events: none;
-    }
+    height: 100%; /* Full height */
+    width: 100%; /* 100% Full-screen */
+    position: fixed;  /* Stay in place */
+    z-index: -1; /* Ensure div tag stays behind content */
+    top: 0; /* Stay at the top */
+    left: 0; /* Stay at the left */
+    display: block; /* Display block to enable the image to be responsive */
+    pointer-events: none;  /* Disable pointer events */
+}
 
-
-    
