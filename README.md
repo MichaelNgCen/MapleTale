@@ -57,7 +57,7 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ### Day 3 - July 24, 2022
 
-☑️ Create monsters
+✅ Create monsters
 
 ☑️ Make monsters's spirte
 
