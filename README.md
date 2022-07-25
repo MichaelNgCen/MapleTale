@@ -49,9 +49,9 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Add user's spirte
 
-⚠️ Animate user (a bit janky)
+⚠️ Animate user (bit janky)
 
-⚠️ Add background music (only works sometimes)
+⚠️ Add background music (works sometimes)
 
 <img width="550" alt="Screen Shot 2022-07-23 at 7 25 13 PM" src="https://user-images.githubusercontent.com/38708266/180626014-82c08408-3709-421d-b93c-2da642ddfa2c.png">
 
