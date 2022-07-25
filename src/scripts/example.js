@@ -199,6 +199,10 @@ const edges = [new Edge({x:0, y: 0, width: 0, height: 615}), // floor
     new Edge({x:1270, y: 0, width: 0, height: 615}), // top
 ];
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function animate() {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -216,9 +220,7 @@ function animate() {
     if (player.postion.x < 0) player.postion.x = 5;
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
-   
 }
-
 
 animate();
 
@@ -239,7 +241,7 @@ addEventListener('keydown', ({key}) => {
             console.log(player.width);
             break;
         case "w":
-            player.velocity.y = -15;
+            if (player.velocity.y === 0)player.velocity.y = -15;
             player.currentSprite = player.sprites.jump.right;
             player.currentCropWidth = player.sprites.jump.cropWidth
             player.width = player.sprites.jump.width
