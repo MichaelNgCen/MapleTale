@@ -209,10 +209,10 @@ function animate() {
     if (player.postion.y + player.height-10 <= platform.position.y && player.postion.y + player.height+player.velocity.y >= platform.position.y && player.postion.x + player.width >= platform.position.x && player.postion.x <= platform.position.x + platform.width) player.velocity.y = 0;
     })
     edges.forEach(edge => {
-    if (player.postion.x < 0) player.postion.x = 0;
-    if (player.postion.x > 1225) player.postion.x = 1225;
+    if (player.postion.x < 0) player.postion.x = 5;
+    if (player.postion.x > 1220) player.postion.x = 1215;
     })
-
+   
 }
 
 
