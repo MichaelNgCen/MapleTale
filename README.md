@@ -73,6 +73,11 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 <img width="550" alt="Screen Shot 2022-07-25 at 5 47 57 PM" src="https://user-images.githubusercontent.com/38708266/180879789-05027af0-3190-4841-9bdc-8429d8a07a99.png">
 
 ### Day 5 - July 26, 2022
+☑ Add random spawn for monster
+
+☑ Hit box
+
+☑ Hurt box
 ### Day 6 - July 27, 2022
 ### Day 7 - July 27, 2022
 ### Day 8 - July 28, 2022
