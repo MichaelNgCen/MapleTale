@@ -56,6 +56,18 @@ slimeDead.src = './src/media/sprite/slimeDead.png'
 const pigDead = new Image();
 pigDead.src = './src/media/sprite/pigDead.png'
 
+const omDead = new Image();
+omDead.src = './src/media/sprite/omDead.png'
+
+const bmDead = new Image();
+bmDead.src = './src/media/sprite/bmDead.png'
+
+const gmDead = new Image();
+gmDead.src = './src/media/sprite/gmDead.png'
+
+const pbDead = new Image();
+pbDead.src = './src/media/sprite/pbDead.png'
+
 class Player{
     constructor() {
         this.postion = {
@@ -178,6 +190,7 @@ class Monster3 { // blue mushroom
         this.sprites = {
             golem: {
                 left: golem, cropWidth: 25, width: 6, height: 6,
+                dead: bmDead, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.golem.left
@@ -197,6 +210,7 @@ class Monster4 { // Green mushroom
         this.sprites = {
             metal: {
                 left: metal, cropWidth: 25, width: 6, height: 6,
+                dead: gmDead, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.metal.left
@@ -216,6 +230,7 @@ class Monster5 { // Orange mushroom
         this.sprites = {
             barlog: {
                 left: barlog, cropWidth: 25, width: 6, height: 6,
+                dead: omDead, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.barlog.left
@@ -235,6 +250,7 @@ class Monster6 { // Pink bean
         this.sprites = {
             pinkBean: {
                 left: pinkBean, cropWidth: 25, width: 6, height: 6,
+                dead: pbDead, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.pinkBean.left
@@ -341,59 +357,83 @@ function animate() {
     if (player.postion.x < 0) player.postion.x = 5;
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
-    console.log(player.postion.x)
-    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x <= 400) slimeHealth -= 5;
-    if (player.postion.x <= 445 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.y <= 528.5 && player.postion.x >= 425) slimeHealth -= 5;
+    console.log(pinkBeanHealth);
+    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 525 && player.postion.y <= 530 && player.postion.x <= 425) slimeHealth -= 5;
+    if (player.postion.x >= 435 && keys.attackk.pressed === true && player.postion.y >= 525 && player.postion.y <= 530 && player.postion.x <= 455) slimeHealth -= 5;
 
-    // if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 1000) console.log("hit second slime with j"); 
-    // if (player.postion.x <= 1065 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 1020) console.log("hit second slime with k"); 
+    if (player.postion.x >= 535 && keys.attackj.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 590) orangeMushroomHealth -= 3;
+    if (player.postion.x >= 600 && keys.attackk.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 650) orangeMushroomHealth -= 3;
 
-    // if (player.postion.x >= 445 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 500) console.log("hit third slime with j"); 
-    // if (player.postion.x <= 565 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 520) console.log("hit third slime with k"); 
+    if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 1000) blueMushroomHealth -= 2;
+    if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 1090) blueMushroomHealth -= 2;
 
-    if (player.postion.x >= 890 && keys.attackj.pressed === true && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x <= 910) pigHealth -= 5;
-    if (player.postion.x <= 445 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.y <= 528.5 && player.postion.x >= 1010) pigHealth -= 5;
+    if (player.postion.x >= 890 && keys.attackj.pressed === true && player.postion.y >= 525.5 && player.postion.y <= 530.5 && player.postion.x <= 930) pigHealth -= 5;
+    if (player.postion.x <= 1010 && keys.attackk.pressed === true && player.postion.y >= 525.5 && player.postion.y <= 530.5 && player.postion.x >= 990) pigHealth -= 5;
 
-    // if (player.postion.x >= 560 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 610) console.log("hit second pig with j");
-    // if (player.postion.x <= 670 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 630) console.log("hit second pig with k");
+    if (player.postion.x >= 475 && keys.attackj.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 530) greenMushroomHealth -= 2;
+    if (player.postion.x >= 540 && keys.attackk.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 610) greenMushroomHealth -= 2;
 
-    // if (player.postion.x >= 760 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 810) console.log("hit third pig");
-    // if (player.postion.x <= 870 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 830) console.log("hit third pig");  
+    if (player.postion.x >= 950 && keys.attackj.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 1000) pinkBeanHealth -= .5;
+    if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 1065) pinkBeanHealth -= .5;
 
     if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5 && player.postion.y <= 528.5 && life.slime.dead === false) {  // slime left side
         health -= 10;
-        console.log(health);
         player.postion.x -= 100;
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 420 && life.slime.dead === false) { // slime right side
         health -= 10;
-        console.log(health);
         player.postion.x += 100;
     }
 
-    if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
+    if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
         health -= 10;
-        console.log(health);
         player.postion.x -= 100;
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 990 && life.pig.dead === false) {  // pig right side
         health -= 10;
-        console.log(health);
         player.postion.x += 100;
     }
 
-    if (slimeHealth === 0) {
+    if (slimeHealth <= 0) {
         life.slime.dead = true;
         monsters2.currentSprite = monsters2.sprites.slime.dead;
         monsters2.currentCropWidth = 70;
         monsters2.currentSprite.height = 50;
     }
 
-    if (pigHealth === 0) {
+    if (pigHealth <= 0) {
         life.pig.dead = true;
         monsters1.currentSprite = monsters1.sprites.pig.dead;
-        monsters1.currentCropWidth = 70;
-        monsters1.currentSprite.height = 50;
+        monsters1.currentCropWidth = 80;
+        monsters1.currentSprite.height = 40;
+    }
+
+    if (orangeMushroomHealth <= 0) {
+        life.orangeMushroom.dead = true;
+        monsters5.currentSprite = monsters5.sprites.barlog.dead;
+        monsters5.currentCropWidth = 70;
+        monsters5.currentSprite.height = 60;
+    }
+
+    if (blueMushroomHealth <= 0) {
+        life.blueMushroom.dead = true;
+        monsters3.currentSprite = monsters3.sprites.golem.dead;
+        monsters3.currentCropWidth = 70;
+        monsters3.currentSprite.height = 60;
+    }
+
+    if (greenMushroomHealth <= 0) {
+        life.blueMushroom.dead = true;
+        monsters4.currentSprite = monsters4.sprites.metal.dead;
+        monsters4.currentCropWidth = 70;
+        monsters4.currentSprite.height = 50;
+    }
+
+    if (pinkBeanHealth <= 0) {
+        life.pinkBean.dead = true;
+        monsters6.currentSprite = monsters6.sprites.pinkBean.dead;
+        monsters6.currentCropWidth = 100;
+        monsters6.currentSprite.height = 90;
     }
 
     if (health === 0) {
@@ -421,7 +461,7 @@ addEventListener('keydown', ({key}) => {
             // console.log(player.width);
             break;
         case "w":
-            if (player.velocity.y === 0)player.velocity.y = -13;
+            if (player.velocity.y === 0)player.velocity.y = -20;
             player.currentSprite = player.sprites.jump.right;
             player.currentCropWidth = player.sprites.jump.cropWidth
             player.width = player.sprites.jump.width
