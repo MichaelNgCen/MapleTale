@@ -107,6 +107,10 @@ class Platform {
     }
 }
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 class Monster1 {
     constructor() {
         this.image = pigIdleLeft
@@ -143,9 +147,9 @@ class Monster2 {
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle pig
-        ctx.drawImage(this.currentSprite, 400, 470, this.currentCropWidth, this.currentSprite.height - 100); // bottom pig
-        ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top pig
+        ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle slime
+        ctx.drawImage(this.currentSprite, 400, 470, this.currentCropWidth, this.currentSprite.height - 100); // bottom slime
+        ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top slime
     }
 
     update() {
@@ -220,6 +224,9 @@ function animate() {
     if (player.postion.x < 0) player.postion.x = 5;
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
+    console.log(player.postion.x);
+    if (player.postion.x === 355 && player.postion.y > 510) player.postion.x = 350; // collision for first monster left side
+    if (player.postion.x === 460 && player.postion.y > 510) player.postion.x = 460; // collision for first monster left side
 }
 
 animate();
@@ -231,17 +238,17 @@ addEventListener('keydown', ({key}) => {
             player.currentSprite = player.sprites.walk.left;
             player.currentCropWidth = player.sprites.walk.cropWidth 
             player.width = player.sprites.walk.width;
-            console.log(player.width);
+            // console.log(player.width);
             break;
         case "d":
             keys.right.pressed = true;
             player.currentSprite = player.sprites.walk.right;
             player.currentCropWidth = player.sprites.walk.cropWidth
             player.width = player.sprites.walk.width
-            console.log(player.width);
+            // console.log(player.width);
             break;
         case "w":
-            if (player.velocity.y === 0)player.velocity.y = -15;
+            if (player.velocity.y === 0)player.velocity.y = -18;
             player.currentSprite = player.sprites.jump.right;
             player.currentCropWidth = player.sprites.jump.cropWidth
             player.width = player.sprites.jump.width

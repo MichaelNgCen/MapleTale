@@ -18,4 +18,5 @@ html,
 body
 {
     overflow: hidden;
+    cursor: url('/src/media/sprite/cursor.png'),auto;
 }
