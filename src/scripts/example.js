@@ -66,12 +66,12 @@ class Player{
                 right: jumpRight, cropWidth: 55, width: 55, height: 86,  
             },
             prone: {
-                right: proneRight, cropWidth: 82, width: 41, height: 40,  
-                left: proneLeft, cropWidth: 82, width: 41, height: 40
+                right: proneRight, cropWidth: 82, width: 10, height: 0,  
+                left: proneLeft, cropWidth: 82, width: 45, height: 0
             },
             attack: {
-                right: attackRight, cropWidth: 67.3, width: 67.3, height: 80, 
-                left: attackLeft, cropWidth: 67.3, width: 67.3, height: 80 
+                right: attackRight, cropWidth: 73.3, width: 67.3, height: 80, 
+                left: attackLeft, cropWidth: 73.3, width: 67.3, height: 80 
             }
             
         }
@@ -124,9 +124,9 @@ class Monster1 {
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 600, 305, this.currentCropWidth, this.currentSprite.height); // middle pig
+        // ctx.drawImage(this.currentSprite, 600, 305, this.currentCropWidth, this.currentSprite.height); // middle pig
         ctx.drawImage(this.currentSprite, 950, 550, this.currentCropWidth, this.currentSprite.height); // bottom pig
-        ctx.drawImage(this.currentSprite, 800, 65, this.currentCropWidth, this.currentSprite.height); // top pig
+        // ctx.drawImage(this.currentSprite, 800, 65, this.currentCropWidth, this.currentSprite.height); // top pig
     }
 
     update() {
@@ -146,10 +146,35 @@ class Monster2 {
         this.currentSprite = this.sprites.slime.left
         this.currentCropWidth = 100
     }
+
     draw() {
-        ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle slime
+        // ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle slime
         ctx.drawImage(this.currentSprite, 400, 470, this.currentCropWidth, this.currentSprite.height - 100); // bottom slime
-        ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top slime
+        // ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top slime
+    }
+
+    update() {
+        this.draw();
+    }
+}
+
+class Monster3 {
+    constructor() {
+        this.image = slime
+        this.frames = 0
+        this.sprites = {
+            slime: {
+                left: slime, cropWidth: 25, width: 6, height: 6,
+            }
+        }
+        this.currentSprite = this.sprites.slime.left
+        this.currentCropWidth = 100
+    }
+
+    draw() {
+        // ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle slime
+        ctx.drawImage(this.currentSprite, 400, 470, this.currentCropWidth, this.currentSprite.height - 100); // bottom slime
+        // ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top slime
     }
 
     update() {
@@ -190,6 +215,7 @@ const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // firs
 
 const monsters1 = new Monster1();
 const monsters2 = new Monster2();
+const monsters3 = new Monster3();
 
 const keys = {
     right: {
@@ -206,6 +232,8 @@ const keys = {
     },
 }
 
+var health = 100;
+
 const edges = [new Edge({x:0, y: 0, width: 0, height: 615}), // floor
     new Edge({x:1270, y: 0, width: 0, height: 615}), // top
 ];
@@ -220,6 +248,7 @@ function animate() {
     player.update();
     monsters1.update();
     monsters2.update();
+    monsters3.update();
     platforms.forEach(platform => platform.draw());
     edges.forEach(edge => edge.draw());
     if (keys.right.pressed) player.postion.x += 5;
@@ -232,24 +261,39 @@ function animate() {
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
     // console.log(player.postion.x);
-    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y === 527.5 && player.postion.x <= 400) console.log("hit first slime with j");
-    if (player.postion.x <= 465 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.x >= 420) console.log("hit first slime with k");  
+    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y === 527.5 && player.postion.x <= 400) console.log("hit first slime from left");
+    if (player.postion.x <= 465 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.x >= 420) console.log("hit first slime from right");  
 
-    if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 1000) console.log("hit second slime with j"); 
-    if (player.postion.x <= 1065 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 1020) console.log("hit second slime with k"); 
+    // if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 1000) console.log("hit second slime with j"); 
+    // if (player.postion.x <= 1065 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 1020) console.log("hit second slime with k"); 
 
-    if (player.postion.x >= 445 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 500) console.log("hit third slime with j"); 
-    if (player.postion.x <= 565 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 520) console.log("hit third slime with k"); 
+    // if (player.postion.x >= 445 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 500) console.log("hit third slime with j"); 
+    // if (player.postion.x <= 565 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 520) console.log("hit third slime with k"); 
 
     if (player.postion.x >= 920 && keys.attackj.pressed === true && player.postion.y === 527.5 && player.postion.x <= 970) console.log("hit first pig with j"); 
     if (player.postion.x <= 1030 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.x >= 990) console.log("hit first pig with j"); 
 
-    if (player.postion.x >= 560 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 610) console.log("hit second pig with j");
-    if (player.postion.x <= 670 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 630) console.log("hit second pig with k");
+    // if (player.postion.x >= 560 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 610) console.log("hit second pig with j");
+    // if (player.postion.x <= 670 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 630) console.log("hit second pig with k");
 
-    if (player.postion.x >= 760 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 810) console.log("hit third pig");
-    if (player.postion.x <= 870 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 830) console.log("hit third pig");  
+    // if (player.postion.x >= 760 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 810) console.log("hit third pig");
+    // if (player.postion.x <= 870 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 830) console.log("hit third pig");  
 
+    if (player.postion.x === 400 && keys.right.pressed === true && player.postion.y === 527.5) { // add if alive condition
+        health -= 10;
+        console.log(health);
+        player.postion.x -= 100;
+    }
+    if (keys.left.pressed === true && player.postion.y === 527.5 && player.postion.x === 420) { // add if alive condition
+        health -= 10;
+        console.log(health);
+        player.postion.x += 100;
+    }
+
+    if (health === 0) {
+        location.reload(true);
+        alert("You died");
+    }
 }
 
 animate();
