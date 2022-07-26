@@ -53,6 +53,9 @@ pinkBean.src = './src/media/sprite/pinkBean0.png'
 const slimeDead = new Image();
 slimeDead.src = './src/media/sprite/slimeDead.png'
 
+const pigDead = new Image();
+pigDead.src = './src/media/sprite/pigDead.png'
+
 class Player{
     constructor() {
         this.postion = {
@@ -133,6 +136,7 @@ class Monster1 { // pig
         this.sprites = {
             pig: {
                 left: pigIdleLeft, cropWidth: 25, width: 6, height: 6,
+                dead: pigDead, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.pig.left
@@ -337,9 +341,9 @@ function animate() {
     if (player.postion.x < 0) player.postion.x = 5;
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
-    console.log(player.postion.y)
-    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x <= 400) slimeHealth -= 10;
-    if (player.postion.x <= 445 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.x >= 425) slimeHealth -= 10;
+    console.log(player.postion.x)
+    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x <= 400) slimeHealth -= 5;
+    if (player.postion.x <= 445 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.y <= 528.5 && player.postion.x >= 425) slimeHealth -= 5;
 
     // if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 1000) console.log("hit second slime with j"); 
     // if (player.postion.x <= 1065 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 1020) console.log("hit second slime with k"); 
@@ -347,8 +351,8 @@ function animate() {
     // if (player.postion.x >= 445 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 500) console.log("hit third slime with j"); 
     // if (player.postion.x <= 565 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 520) console.log("hit third slime with k"); 
 
-    if (player.postion.x >= 920 && keys.attackj.pressed === true && player.postion.y === 527.5 && player.postion.x <= 970) console.log("hit first pig with j"); 
-    if (player.postion.x <= 1030 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.x >= 990) console.log("hit first pig with j"); 
+    if (player.postion.x >= 890 && keys.attackj.pressed === true && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x <= 910) pigHealth -= 5;
+    if (player.postion.x <= 445 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.y <= 528.5 && player.postion.x >= 1010) pigHealth -= 5;
 
     // if (player.postion.x >= 560 && keys.attackj.pressed === true && player.postion.y === 283 && player.postion.x <= 610) console.log("hit second pig with j");
     // if (player.postion.x <= 670 && keys.attackk.pressed === true && player.postion.y === 283 && player.postion.x >= 630) console.log("hit second pig with k");
@@ -356,12 +360,23 @@ function animate() {
     // if (player.postion.x >= 760 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 810) console.log("hit third pig");
     // if (player.postion.x <= 870 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 830) console.log("hit third pig");  
 
-    if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5 && life.slime.dead === false) { 
+    if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5 && player.postion.y <= 528.5 && life.slime.dead === false) {  // slime left side
         health -= 10;
         console.log(health);
         player.postion.x -= 100;
     }
-    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 420 && life.slime.dead === false) { // add if alive condition
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 420 && life.slime.dead === false) { // slime right side
+        health -= 10;
+        console.log(health);
+        player.postion.x += 100;
+    }
+
+    if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
+        health -= 10;
+        console.log(health);
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 990 && life.pig.dead === false) {  // pig right side
         health -= 10;
         console.log(health);
         player.postion.x += 100;
@@ -376,7 +391,7 @@ function animate() {
 
     if (pigHealth === 0) {
         life.pig.dead = true;
-        monsters1.currentSprite = monsters3.sprites.pig.dead;
+        monsters1.currentSprite = monsters1.sprites.pig.dead;
         monsters1.currentCropWidth = 70;
         monsters1.currentSprite.height = 50;
     }
