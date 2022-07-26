@@ -68,6 +68,8 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Collison map's edge
 
+✅ Added new cursor
+
 ☑ Collison monster
 
 <img width="550" alt="Screen Shot 2022-07-25 at 5 47 57 PM" src="https://user-images.githubusercontent.com/38708266/180880257-d2b57b99-e1c3-4bed-a8d9-6b655ad0d2fe.png">
