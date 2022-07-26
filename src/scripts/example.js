@@ -360,26 +360,28 @@ function animate() {
     // console.log(pinkBeanHealth);
 
     // Attack
+    // slime
     if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 525 && player.postion.y <= 530 && player.postion.x <= 425) slimeHealth -= 5;
     if (player.postion.x >= 435 && keys.attackk.pressed === true && player.postion.y >= 525 && player.postion.y <= 530 && player.postion.x <= 455) slimeHealth -= 5;
-
+    // pig
     if (player.postion.x >= 535 && keys.attackj.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 590) orangeMushroomHealth -= 3;
     if (player.postion.x >= 600 && keys.attackk.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 650) orangeMushroomHealth -= 3;
-
+    // orange mushroom
     if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 1000) blueMushroomHealth -= 2;
     if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x <= 1090) blueMushroomHealth -= 2;
-
+    // blue mushroom
     if (player.postion.x >= 890 && keys.attackj.pressed === true && player.postion.y >= 525.5 && player.postion.y <= 530.5 && player.postion.x <= 930) pigHealth -= 5;
     if (player.postion.x <= 1010 && keys.attackk.pressed === true && player.postion.y >= 525.5 && player.postion.y <= 530.5 && player.postion.x >= 990) pigHealth -= 5;
-
+    // pink bean
     if (player.postion.x >= 475 && keys.attackj.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 530) greenMushroomHealth -= 2;
     if (player.postion.x >= 540 && keys.attackk.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 610) greenMushroomHealth -= 2;
-
+    // green mushroom
     if (player.postion.x >= 950 && keys.attackj.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 1000) pinkBeanHealth -= .5;
     if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 1065) pinkBeanHealth -= .5;
     // End of attack
 
     // Player Hurt
+    // slime    
     if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5 && player.postion.y <= 528.5 && life.slime.dead === false) {  // slime left side
         health -= 10;
         player.postion.x -= 100;
@@ -388,7 +390,7 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-
+    // pig
     if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
@@ -397,17 +399,42 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-    console.log(player.postion.y);
-
-    if (player.postion.x === 580 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.pig.dead === false) { // pig left side
+    // orange mushroom
+    if (player.postion.x === 580 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.orangeMushroom.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
     }
-    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 640 && life.pig.dead === false) {  // pig right side
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 640 && life.orangeMushroom.dead === false) {  // pig right side
         health -= 10;
         player.postion.x += 100;
     }
-
+    // blue mushroom
+    if (player.postion.x === 985 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.blueMushroom.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 1050 && life.blueMushroom.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // green mushroom
+    if (player.postion.x === 500 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.greenMushroom.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 580 && life.greenMushroom.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // pink bean
+    if (player.postion.x === 980 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.pinkBean.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 1050 && life.pinkBean.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
     // End of Player Hurt
 
     // Monster Death
@@ -440,7 +467,7 @@ function animate() {
     }
 
     if (greenMushroomHealth <= 0) {
-        life.blueMushroom.dead = true;
+        life.greenMushroom.dead = true;
         monsters4.currentSprite = monsters4.sprites.metal.dead;
         monsters4.currentCropWidth = 70;
         monsters4.currentSprite.height = 50;
@@ -460,6 +487,10 @@ function animate() {
         alert("You died");
     }
     // End of Player Death
+    if (life.blueMushroom.dead === true && life.greenMushroom.dead === true && life.orangeMushroom.dead === true && life.pinkBean.dead === true && life.pig.dead === true && life.slime.dead === true) {
+        location.reload(true);
+        alert("You win");
+    }        
 }
 
 animate();
@@ -471,14 +502,12 @@ addEventListener('keydown', ({key}) => {
             player.currentSprite = player.sprites.walk.left;
             player.currentCropWidth = player.sprites.walk.cropWidth 
             player.width = player.sprites.walk.width;
-            // console.log(player.width);
             break;
         case "d":
             keys.right.pressed = true;
             player.currentSprite = player.sprites.walk.right;
             player.currentCropWidth = player.sprites.walk.cropWidth
             player.width = player.sprites.walk.width
-            // console.log(player.width);
             break;
         case "w":
             if (player.velocity.y === 0)player.velocity.y = -20;
