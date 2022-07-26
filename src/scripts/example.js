@@ -172,6 +172,7 @@ class Edge {
     }
 }
 
+// const hitbox = new Hitbox({x: 10, y: 10, width: 10, height: 10})
 const player = new Player();
 const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // first haystack
     new Platform({x:80, y: 490, width: 140, height: 0}), // first edge platform 
@@ -195,6 +196,9 @@ const keys = {
         pressed: false,
     },
     left: {
+        pressed: false,
+    },
+    attack: {
         pressed: false,
     },
 }
@@ -225,8 +229,15 @@ function animate() {
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
     console.log(player.postion.x);
-    if (player.postion.x === 355 && player.postion.y > 510) player.postion.x = 350; // collision for first monster left side
-    if (player.postion.x === 460 && player.postion.y > 510) player.postion.x = 460; // collision for first monster left side
+    if (player.postion.x >= 345 && keys.attack.pressed === true && player.postion.y === 527.5 && player.postion.x <= 465) console.log("hit first slime"); 
+    if (player.postion.x >= 945 && keys.attack.pressed === true && player.postion.y === 283 && player.postion.x <= 1065) console.log("hit second slime"); 
+    if (player.postion.x >= 445 && keys.attack.pressed === true && player.postion.y === 43 && player.postion.x <= 555) console.log("hit third slime"); 
+    if (player.postion.x >= 914 && keys.attack.pressed === true && player.postion.y === 527.5 && player.postion.x <= 1030) console.log("hit first pig"); 
+    if (player.postion.x >= 560 && keys.attack.pressed === true && player.postion.y === 283 && player.postion.x <= 680) console.log("hit second pig"); 
+    if (player.postion.x >= 760 && keys.attack.pressed === true && player.postion.y === 43 && player.postion.x <= 880) console.log("hit third pig"); 
+
+
+
 }
 
 animate();
@@ -259,11 +270,13 @@ addEventListener('keydown', ({key}) => {
             player.width = player.sprites.prone.width
             break;
         case "j":
+            keys.attack.pressed = true;
             player.currentSprite = player.sprites.attack.right;
             player.currentCropWidth = player.sprites.attack.cropWidth
             player.width = player.sprites.attack.width
             break;
         case "k":
+            keys.attack.pressed = true;
             player.currentSprite = player.sprites.attack.left;
             player.currentCropWidth = player.sprites.attack.cropWidth
             player.width = player.sprites.attack.width
@@ -297,11 +310,13 @@ addEventListener('keyup', ({key}) => {
             player.width = player.sprites.stand.width
             break;
         case "j":
+            keys.attack.pressed = false;
             player.currentSprite = player.sprites.stand.right;
             player.currentCropWidth = player.sprites.stand.cropWidth
             player.width = player.sprites.stand.width
             break;
         case "k":
+            keys.attack.pressed = false;
             player.currentSprite = player.sprites.stand.left;
             player.currentCropWidth = player.sprites.stand.cropWidth
             player.width = player.sprites.stand.width
