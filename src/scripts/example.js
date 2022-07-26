@@ -38,6 +38,18 @@ pigIdleLeft.src = './src/media/sprite/pig1.png'
 const slime = new Image();
 slime.src = './src/media/sprite/slimeIdle.png'
 
+const golem = new Image();
+golem.src = './src/media/sprite/golem0.png'
+
+const metal = new Image();
+metal.src = './src/media/sprite/metalGolem0.png'
+
+const barlog = new Image();
+barlog.src = './src/media/sprite/barlog0.png'
+
+const pinkBean = new Image();
+pinkBean.src = './src/media/sprite/pinkBean0.png'
+
 class Player{
     constructor() {
         this.postion = {
@@ -111,7 +123,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
-class Monster1 {
+class Monster1 { // pig
     constructor() {
         this.image = pigIdleLeft
         this.frames = 0
@@ -121,20 +133,16 @@ class Monster1 {
             }
         }
         this.currentSprite = this.sprites.pig.left
-        this.currentCropWidth = 100
+        this.currentCropWidth = 85
     }
     draw() {
-        // ctx.drawImage(this.currentSprite, 600, 305, this.currentCropWidth, this.currentSprite.height); // middle pig
-        ctx.drawImage(this.currentSprite, 950, 550, this.currentCropWidth, this.currentSprite.height); // bottom pig
-        // ctx.drawImage(this.currentSprite, 800, 65, this.currentCropWidth, this.currentSprite.height); // top pig
+        ctx.drawImage(this.currentSprite, 950, 570, this.currentCropWidth, this.currentSprite.height);
     }
-
     update() {
         this.draw();
     }
 }
-
-class Monster2 {
+class Monster2 { // slime
     constructor() {
         this.image = slime
         this.frames = 0
@@ -144,39 +152,87 @@ class Monster2 {
             }
         }
         this.currentSprite = this.sprites.slime.left
-        this.currentCropWidth = 100
+        this.currentCropWidth = 70
     }
-
     draw() {
-        // ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle slime
-        ctx.drawImage(this.currentSprite, 400, 470, this.currentCropWidth, this.currentSprite.height - 100); // bottom slime
-        // ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top slime
+        ctx.drawImage(this.currentSprite, 400, 540, this.currentCropWidth, this.currentSprite.height+25); 
     }
-
     update() {
         this.draw();
     }
 }
-
-class Monster3 {
+class Monster3 { // blue mushroom
     constructor() {
-        this.image = slime
+        this.image = golem
         this.frames = 0
         this.sprites = {
-            slime: {
-                left: slime, cropWidth: 25, width: 6, height: 6,
+            golem: {
+                left: golem, cropWidth: 25, width: 6, height: 6,
             }
         }
-        this.currentSprite = this.sprites.slime.left
+        this.currentSprite = this.sprites.golem.left
         this.currentCropWidth = 100
     }
-
     draw() {
-        // ctx.drawImage(this.currentSprite, 1000, 230, this.currentCropWidth, this.currentSprite.height - 100); // middle slime
-        ctx.drawImage(this.currentSprite, 400, 470, this.currentCropWidth, this.currentSprite.height - 100); // bottom slime
-        // ctx.drawImage(this.currentSprite, 500, -20, this.currentCropWidth, this.currentSprite.height - 100); // top slime
+        ctx.drawImage(this.currentSprite, 1000, 290, this.currentCropWidth, this.currentSprite.height+20);
     }
-
+    update() {
+        this.draw();
+    }
+}
+class Monster4 { // Green mushroom
+    constructor() {
+        this.image = metal
+        this.frames = 0
+        this.sprites = {
+            metal: {
+                left: metal, cropWidth: 25, width: 6, height: 6,
+            }
+        }
+        this.currentSprite = this.sprites.metal.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 520, 70, this.currentCropWidth, this.currentSprite.height+10); 
+    }
+    update() {
+        this.draw();
+    }
+}
+class Monster5 { // Orange mushroom
+    constructor() {
+        this.image = barlog
+        this.frames = 0
+        this.sprites = {
+            barlog: {
+                left: barlog, cropWidth: 25, width: 6, height: 6,
+            }
+        }
+        this.currentSprite = this.sprites.barlog.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 580, 290, this.currentCropWidth, this.currentSprite.height+20); // middle slime
+    }
+    update() {
+        this.draw();
+    }
+}
+class Monster6 { // Pink bean
+    constructor() {
+        this.image = pinkBean
+        this.frames = 0
+        this.sprites = {
+            pinkBean: {
+                left: pinkBean, cropWidth: 25, width: 6, height: 6,
+            }
+        }
+        this.currentSprite = this.sprites.pinkBean.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 1000, 40, this.currentCropWidth, this.currentSprite.height); // middle slime
+    }
     update() {
         this.draw();
     }
@@ -197,7 +253,6 @@ class Edge {
     }
 }
 
-// const hitbox = new Hitbox({x: 10, y: 10, width: 10, height: 10})
 const player = new Player();
 const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // first haystack
     new Platform({x:80, y: 490, width: 140, height: 0}), // first edge platform 
@@ -216,6 +271,9 @@ const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // firs
 const monsters1 = new Monster1();
 const monsters2 = new Monster2();
 const monsters3 = new Monster3();
+const monsters4 = new Monster4();
+const monsters5 = new Monster5();
+const monsters6 = new Monster6();
 
 const keys = {
     right: {
@@ -238,10 +296,6 @@ const edges = [new Edge({x:0, y: 0, width: 0, height: 615}), // floor
     new Edge({x:1270, y: 0, width: 0, height: 615}), // top
 ];
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 function animate() {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -249,6 +303,9 @@ function animate() {
     monsters1.update();
     monsters2.update();
     monsters3.update();
+    monsters4.update();
+    monsters5.update();
+    monsters6.update();
     platforms.forEach(platform => platform.draw());
     edges.forEach(edge => edge.draw());
     if (keys.right.pressed) player.postion.x += 5;
@@ -260,7 +317,7 @@ function animate() {
     if (player.postion.x < 0) player.postion.x = 5;
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
-    // console.log(player.postion.x);
+    console.log(player.postion.y)
     if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y === 527.5 && player.postion.x <= 400) console.log("hit first slime from left");
     if (player.postion.x <= 465 && keys.attackk.pressed === true && player.postion.y === 527.5 && player.postion.x >= 420) console.log("hit first slime from right");  
 
@@ -279,12 +336,12 @@ function animate() {
     // if (player.postion.x >= 760 && keys.attackj.pressed === true && player.postion.y === 43 && player.postion.x <= 810) console.log("hit third pig");
     // if (player.postion.x <= 870 && keys.attackk.pressed === true && player.postion.y === 43 && player.postion.x >= 830) console.log("hit third pig");  
 
-    if (player.postion.x === 400 && keys.right.pressed === true && player.postion.y === 527.5) { // add if alive condition
+    if (player.postion.x === 400 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5) { // add if alive condition
         health -= 10;
         console.log(health);
         player.postion.x -= 100;
     }
-    if (keys.left.pressed === true && player.postion.y === 527.5 && player.postion.x === 420) { // add if alive condition
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 420) { // add if alive condition
         health -= 10;
         console.log(health);
         player.postion.x += 100;
@@ -315,7 +372,7 @@ addEventListener('keydown', ({key}) => {
             // console.log(player.width);
             break;
         case "w":
-            if (player.velocity.y === 0)player.velocity.y = -18;
+            if (player.velocity.y === 0)player.velocity.y = -13;
             player.currentSprite = player.sprites.jump.right;
             player.currentCropWidth = player.sprites.jump.cropWidth
             player.width = player.sprites.jump.width
