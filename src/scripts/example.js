@@ -357,7 +357,9 @@ function animate() {
     if (player.postion.x < 0) player.postion.x = 5;
     if (player.postion.x > 1220) player.postion.x = 1215;
     })
-    console.log(pinkBeanHealth);
+    // console.log(pinkBeanHealth);
+
+    // Attack
     if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 525 && player.postion.y <= 530 && player.postion.x <= 425) slimeHealth -= 5;
     if (player.postion.x >= 435 && keys.attackk.pressed === true && player.postion.y >= 525 && player.postion.y <= 530 && player.postion.x <= 455) slimeHealth -= 5;
 
@@ -375,7 +377,9 @@ function animate() {
 
     if (player.postion.x >= 950 && keys.attackj.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 1000) pinkBeanHealth -= .5;
     if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x <= 1065) pinkBeanHealth -= .5;
+    // End of attack
 
+    // Player Hurt
     if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y === 527.5 && player.postion.y <= 528.5 && life.slime.dead === false) {  // slime left side
         health -= 10;
         player.postion.x -= 100;
@@ -393,7 +397,20 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
+    console.log(player.postion.y);
 
+    if (player.postion.x === 580 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.pig.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 640 && life.pig.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+
+    // End of Player Hurt
+
+    // Monster Death
     if (slimeHealth <= 0) {
         life.slime.dead = true;
         monsters2.currentSprite = monsters2.sprites.slime.dead;
@@ -435,11 +452,14 @@ function animate() {
         monsters6.currentCropWidth = 100;
         monsters6.currentSprite.height = 90;
     }
+    // End of Monster Death
 
+    // Player Death
     if (health === 0) {
         location.reload(true);
         alert("You died");
     }
+    // End of Player Death
 }
 
 animate();
