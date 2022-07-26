@@ -75,13 +75,15 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ### Day 5 - July 26, 2022
 ✅ Monster hit
 
-☑ Monster damage
+✅ Monster damage
+
+✅ Player die
 
 ☑ Monster die
 
 ### Day 6 - July 27, 2022
 ### Day 7 - July 27, 2022
-### Day 8 - July 28, 2022
+
 
 
 
