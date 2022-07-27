@@ -9,11 +9,26 @@
 /* title will be full screen */
 #title {
     position: absolute;
+    z-index: -5;
+    top: 0;
     width: 100%;
-    z-index: -5; /* Ensure div tag stays behind content */
-    margin: 0;
-    padding: 0;
 }
+#titleScreen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    margin-top: 25vh;
+}
+.title-screen{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15vh;
+    color: orange;
+    text-shadow: black 1vw 1vh;
+}
+
 #playButton {
     background-color: orange;
     position: fixed;
