@@ -35,6 +35,16 @@
     margin: 0;
     padding: 0; 
 }
+#linkedInButton {
+    background-color: lightblue;
+    position: fixed;
+    top: 710px;
+    left: 1110px;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0; 
+}
 
 canvas{
     position: fixed;

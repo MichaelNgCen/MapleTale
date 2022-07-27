@@ -19,6 +19,7 @@
 <button id="playButton">Play Background Music</button>
 <button id="stopButton">Stop Background Music</button>
 <audio id="bgm" src="src/media/bgm.mp3" type="audio/mpeg"></audio>
+<button id="linkedInButton"> LinkedIn </button>
 
 <script>
   const playButton = document.getElementById('playButton');
@@ -29,6 +30,12 @@
   });
   stopButton.addEventListener('click', () => {
     bgm.pause();
+  });
+</script>
+<script>
+  const linkedInButton = document.getElementById('linkedInButton');
+  linkedInButton.addEventListener('click', () => {
+    window.open('https://www.linkedin.com/in/michaelngcen/', '_blank');
   });
 </script>
 
