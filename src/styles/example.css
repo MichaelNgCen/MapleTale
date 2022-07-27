@@ -24,6 +24,7 @@
 }
 .title-screen{
     font-family: 'Press Start 2P', cursive;
+    z-index: 10;
     font-size: 15vh;
     color: orange;
     text-shadow: black 1vw 1vh;
@@ -39,6 +40,23 @@
     margin: 0;
     padding: 0; 
 }
+#game {
+    display: none;
+}
+
+#instructionScreen{
+    display: none;
+}
+
+#tb{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
 #stopButton {
     background-color: orange;
     position: fixed;

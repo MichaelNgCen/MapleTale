@@ -7,16 +7,25 @@
   <link rel="stylesheet" href="src/styles/reset.css">
   <link rel="stylesheet" href="src/styles/example.css">
   <script src="src/scripts/example.js" type="module" ></script>
+  <script src="src/index.js" type="module" ></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <canvas></canvas>
-
 <div id="titleScreen">
     <p class="title-screen">MapleTale 🍁</p>
+    <img src="src/media/titlebg.png" id="tb">
+
 </div>
+<div id="instructionScreen">
+    <p class="instruction-screen">
+      wasd to move<br>
+      j, k to atttack<br>
+    </p>
+</div>
+<div id="game">
+<canvas></canvas>
 <button id="playButton">Play Background Music</button>
 <button id="stopButton">Stop Background Music</button>
 <audio id="bgm" src="src/media/bgm.mp3" type="audio/mpeg"></audio>
@@ -46,5 +55,6 @@
 <div id="container">
   <img src="src/media/white.png" id="title">
 </body>
+</div>
 </html>
  
