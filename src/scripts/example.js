@@ -69,6 +69,13 @@ gmDead.src = './src/media/sprite/gmDead.png'
 
 const pbDead = new Image();
 pbDead.src = './src/media/sprite/pbDead.png'
+
+const hrt = new Image();
+hrt.src = './src/media/sprite/heart.png'
+
+const empty = new Image();
+empty.src = './src/media/sprite/empty.png'
+
 // SPRITE END
 
 class Player{
@@ -282,6 +289,109 @@ class Edge {
     }
 }
 
+class Heart1 {  
+    constructor() {
+        this.image = hrt
+        this.frames = 0
+        this.sprites = {
+            hrt: {
+                left: hrt, cropWidth: 25, width: 6, height: 6,
+                hurt: empty, cropWidth: 25, width: 6, height: 6
+            }
+        }
+        this.currentSprite = this.sprites.hrt.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 40, 700, this.currentCropWidth, this.currentSprite.height - 550); 
+    }
+    update() {
+        this.draw();
+    }
+}
+class Heart2 {  
+    constructor() {
+        this.image = hrt
+        this.frames = 0
+        this.sprites = {
+            hrt: {
+                left: hrt, cropWidth: 25, width: 6, height: 6,
+                hurt: empty, cropWidth: 25, width: 6, height: 6
+            }
+        }
+        this.currentSprite = this.sprites.hrt.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 140, 700, this.currentCropWidth, this.currentSprite.height - 550); 
+    }
+    update() {
+        this.draw();
+    }
+}
+class Heart3 {  
+    constructor() {
+        this.image = hrt
+        this.frames = 0
+        this.sprites = {
+            hrt: {
+                left: hrt, cropWidth: 25, width: 6, height: 6,
+                hurt: empty, cropWidth: 25, width: 6, height: 6
+            }
+        }
+        this.currentSprite = this.sprites.hrt.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 240, 700, this.currentCropWidth, this.currentSprite.height - 550); 
+    }
+    update() {
+        this.draw();
+    }
+}
+
+class Heart4 {  
+    constructor() {
+        this.image = hrt
+        this.frames = 0
+        this.sprites = {
+            hrt: {
+                left: hrt, cropWidth: 25, width: 6, height: 6,
+                hurt: empty, cropWidth: 25, width: 6, height: 6
+            }
+        }
+        this.currentSprite = this.sprites.hrt.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 340, 700, this.currentCropWidth, this.currentSprite.height - 550); 
+    }
+    update() {
+        this.draw();
+    }
+}
+
+class Heart5 {  
+    constructor() {
+        this.image = hrt
+        this.frames = 0
+        this.sprites = {
+            hrt: {
+                left: hrt, cropWidth: 25, width: 6, height: 6,
+                hurt: empty, cropWidth: 25, width: 6, height: 6
+            }
+        }
+        this.currentSprite = this.sprites.hrt.left
+        this.currentCropWidth = 100
+    }
+    draw() {
+        ctx.drawImage(this.currentSprite, 440, 700, this.currentCropWidth, this.currentSprite.height - 550); 
+    }
+    update() {
+        this.draw();
+    }
+}
+
 const player = new Player();
 const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // first haystack
     new Platform({x:80, y: 490, width: 140, height: 0}), // first edge platform 
@@ -298,6 +408,7 @@ const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // firs
 ]; 
 
 const monsters1 = new Monster1(), monsters2 = new Monster2(), monsters3 = new Monster3(), monsters4 = new Monster4(), monsters5 = new Monster5(), monsters6 = new Monster6();
+const heart1 = new Heart1(), heart2 = new Heart2(), heart3 = new Heart3(), heart4 = new Heart4(), heart5 = new Heart5();
 
 const keys = {
     right: {pressed: false},
@@ -322,7 +433,7 @@ const edges = [new Edge({x:0, y: 0, width: 0, height: 615}), new Edge({x:1270, y
 function animate() {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    player.update(); monsters1.draw(); monsters2.draw(); monsters3.draw(); monsters4.draw(); monsters5.draw(); monsters6.draw();
+    player.update(); monsters1.draw(); monsters2.draw(); monsters3.draw(); monsters4.draw(); monsters5.draw(); monsters6.draw(); heart1.draw(), heart2.draw(), heart3.draw(), heart4.draw(), heart5.draw();
     platforms.forEach(platform => platform.draw());
     edges.forEach(edge => edge.draw());
     if (keys.right.pressed) player.postion.x += 5;
@@ -453,6 +564,33 @@ function animate() {
     // End of Monster Death
 
     // Player Death
+
+    if (health <= 80) {
+        heart5.currentSprite = heart5.sprites.hrt.hurt;
+        heart5.currentCropWidth = 0;
+        heart5.currentSprite.height = 0;
+    }
+    if (health <= 60) {
+        heart4.currentSprite = heart4.sprites.hrt.hurt;
+        heart4.currentCropWidth = 0;
+        heart4.currentSprite.height = 0;
+    }
+    if (health <= 40) {
+        heart3.currentSprite = heart3.sprites.hrt.hurt;
+        heart3.currentCropWidth = 0;
+        heart3.currentSprite.height = 0;
+    }
+    if (health <= 20) {
+        heart2.currentSprite = heart2.sprites.hrt.hurt;
+        heart2.currentCropWidth = 0;
+        heart2.currentSprite.height = 0;
+    }
+    if (health <= .1) {
+        heart1.currentSprite = heart1.sprites.hrt.hurt;
+        heart1.currentCropWidth = 0;
+        heart1.currentSprite.height = 0;
+    }
+
     if (health === 0) {
         location.reload(true);
         alert("You died");

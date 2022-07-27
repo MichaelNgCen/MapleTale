@@ -6,6 +6,15 @@
     display: block; /* Display block to enable the image to be responsive */
     pointer-events: none;  /* Disable pointer events */
 }
+#title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -5; /* Ensure div tag stays behind content */
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+}
 
 canvas{
     position: fixed;
