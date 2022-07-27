@@ -6,12 +6,11 @@
     display: block; /* Display block to enable the image to be responsive */
     pointer-events: none;  /* Disable pointer events */
 }
+/* title will be full screen */
 #title {
     position: absolute;
-    top: 100%;
-    left: 100%;
+    width: 100%;
     z-index: -5; /* Ensure div tag stays behind content */
-    transform: translate(-50%, -50%);
     margin: 0;
     padding: 0;
 }
