@@ -15,6 +15,25 @@
 </audio> -->
 
 <!-- <iframe src="/src/media/bgm.mp3" allow="autoplay" style="display:none"></iframe> -->
+
+<button id="playButton">Play Background Music</button>
+<button id="stopButton">Stop Background Music</button>
+<audio id="bgm" src="src/media/bgm.mp3" type="audio/mpeg"></audio>
+
+<script>
+  const playButton = document.getElementById('playButton');
+  const stopButton = document.getElementById('stopButton');
+  const bgm = document.getElementById('bgm');
+  playButton.addEventListener('click', () => {
+    bgm.play();
+  });
+  stopButton.addEventListener('click', () => {
+    bgm.pause();
+  });
+</script>
+
+
+
 <div id="container">
   <img src="src/media/bg.png" id="background">
 </div>

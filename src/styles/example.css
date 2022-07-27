@@ -15,6 +15,26 @@
     margin: 0;
     padding: 0;
 }
+#playButton {
+    background-color: orange;
+    position: fixed;
+    top: 670px;
+    left: 1110px;
+    z-index: 0; 
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0; 
+}
+#stopButton {
+    background-color: orange;
+    position: fixed;
+    top: 690px;
+    left: 1110px;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0; 
+}
 
 canvas{
     position: fixed;

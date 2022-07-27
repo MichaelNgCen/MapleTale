@@ -394,12 +394,12 @@ class Heart5 {
 
 const player = new Player();
 const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // first haystack
-    new Platform({x:80, y: 490, width: 140, height: 0}), // first edge platform 
-    new Platform({x:80, y: 430, width: 140, height: 0}), // second edge platform
+    new Platform({x:80, y: 490, width: 120, height: 0}), // first edge platform 
+    new Platform({x:80, y: 430, width: 120, height: 0}), // second edge platform
     new Platform({x:260, y: 370, width: 1020, height: 0}), // second floor?
     new Platform({x:330, y: 310, width: 100, height: 0}), // second haystack
-    new Platform({x:175, y: 255, width: 140, height: 0}), // third edge platform 
-    new Platform({x:175, y: 190, width: 140, height: 0}), // fourth edge platform
+    new Platform({x:175, y: 255, width: 120, height: 0}), // third edge platform 
+    new Platform({x:175, y: 190, width: 120, height: 0}), // fourth edge platform
     new Platform({x:350, y: 130, width: 1200, height: 0}), // third floor?
     new Platform({x:400, y: 65, width: 100, height: 0}), // third haystack
     new Platform({x:260, y: 12, width: 140, height: 0}), // fifth edge platform
