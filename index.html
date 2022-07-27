@@ -16,22 +16,23 @@
 <div id="titleScreen">
     <p class="title-screen">MapleTale 🍁</p>
     <img src="src/media/titlebg.png" id="tb">
-
 </div>
 <div id="instructionScreen">
-    <p class="instruction-screen">
-      wasd to move<br>
-      j, k to atttack<br>
-    </p>
+    <img src="src/media/mychat.png" id="npcChat2">
+    <img src="src/media/hh.png" id="ib">
 </div>
 <div id="game">
-<canvas></canvas>
+<canvas id="canvas"></canvas>
+<div id="linkedin">
+  <img src="src/media/npcChat3.png" id="npcChat3">
+</div>
+<div id="github">
+  <img src="src/media/npcChat4.png" id="npcChat4">
+</div>
 <button id="playButton">Play Background Music</button>
 <button id="stopButton">Stop Background Music</button>
 <audio id="bgm" src="src/media/bgm.mp3" type="audio/mpeg"></audio>
 <audio id="jump" src="src/media/jumpSound.mp3" type="audio/mpeg"></audio>
-<button id="linkedInButton"> LinkedIn </button>
-
 <script>
   const playButton = document.getElementById('playButton');
   const stopButton = document.getElementById('stopButton');
@@ -43,18 +44,14 @@
     bgm.pause();
   });
 </script>
-<script>
-  const linkedInButton = document.getElementById('linkedInButton');
-  linkedInButton.addEventListener('click', () => {
-    window.open('https://www.linkedin.com/in/michaelngcen/', '_blank');
-  });
-</script>
+
 <div id="container">
   <img src="src/media/bg.png" id="background">
 </div>
-<div id="container">
-  <img src="src/media/white.png" id="title">
+<div class="slide">
+  <div class="sliding-background"></div>
+</div> 
+
 </body>
-</div>
 </html>
  

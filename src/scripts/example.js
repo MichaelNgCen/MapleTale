@@ -465,7 +465,7 @@ function animate() {
     // Player Hurt
     // slime    
     // console.log(slimeHealth);
-    // console.log(player.postion.y);
+    console.log(player.postion.y);
     if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && life.slime.dead === false) {  // slime left side
         health -= 10;
         player.postion.x -= 100;
@@ -595,7 +595,7 @@ function animate() {
 
     if (health === 0) {
         location.reload(true);
-        alert("You died");
+        alert("You Fainted");
     }
     // End of Player Death
     if (life.blueMushroom.dead === true && life.greenMushroom.dead === true && life.orangeMushroom.dead === true && life.pinkBean.dead === true && life.pig.dead === true && life.slime.dead === true) {
@@ -621,7 +621,7 @@ addEventListener('keydown', ({key}) => {
             player.width = player.sprites.walk.width
             break;
         case "w":
-            if (player.velocity.y === 0)player.velocity.y = -15;
+            if (player.velocity.y === 0)player.velocity.y = -16;
             player.currentSprite = player.sprites.jump.right;
             player.currentCropWidth = player.sprites.jump.cropWidth
             player.width = player.sprites.jump.width

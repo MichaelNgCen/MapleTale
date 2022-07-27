@@ -1,10 +1,13 @@
 #background {
     position: fixed;  /* Stay in place */
-    z-index: -1; /* Ensure div tag stays behind content */
+    z-index: 1000; /* Ensure div tag stays behind content */
     top: 0; /* Stay at the top */
     left: 0; /* Stay at the left */
     display: block; /* Display block to enable the image to be responsive */
     pointer-events: none;  /* Disable pointer events */
+}
+#canvas {
+    z-index: 1001; /* Ensure div tag stays behind content */
 }
 /* title will be full screen */
 #title {
@@ -35,7 +38,7 @@
     position: fixed;
     top: 670px;
     left: 1110px;
-    z-index: 0; 
+    z-index: 1002; 
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0; 
@@ -57,12 +60,69 @@
     overflow: auto;
 }
 
+#ib{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -5;
+}
+
+#npcChat2 {
+    position: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    height: 30%;
+    flex-direction: column;
+    margin-top: 30vh;
+    margin-left: 33vw;
+}
+
+#npcChat3{
+    z-index: 4;
+    position: fixed;
+    align-items: center;
+    margin-top: 5vh;
+    margin-left: 72vw;
+}
+
+#npcChat4{
+    z-index: 4;
+    position: fixed;
+    align-items: center;
+    margin-top: 30vh;
+    margin-left: 72vw;
+}
+
+.slide {
+    overflow: hidden;
+}
+
+.sliding-background {
+    z-index: -10;
+    background: url("../media/white.png") repeat-x;
+    height: 5600px;
+    width: 5076px;
+    animation: slide 60s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-1692px, 0, 0);
+    }
+}
+
 #stopButton {
     background-color: orange;
     position: fixed;
     top: 690px;
     left: 1110px;
-    z-index: 0;
+    z-index: 10002;
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0; 
