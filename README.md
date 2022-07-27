@@ -77,7 +77,7 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Player / Monster get hit
 
-✅ Player / Monster die
+✅ Player / Monster faint
 
 ✅ Win / Lose
 
