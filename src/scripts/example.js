@@ -76,6 +76,27 @@ hrt.src = './src/media/sprite/heart.png'
 const empty = new Image();
 empty.src = './src/media/sprite/empty.png'
 
+const s1 = new Image();
+s1.src = './src/media/sprite/slime1.png'
+
+const s2 = new Image();
+s2.src = './src/media/sprite/slime2.png'
+
+const p2 = new Image();
+p2.src = './src/media/sprite/pig2.png'
+
+const b1 = new Image();
+b1.src = './src/media/sprite/blue1.png'
+
+const b2 = new Image();
+b2.src = './src/media/sprite/blue2.png'
+
+const o1 = new Image();
+o1.src = './src/media/sprite/orange1.png'
+
+const o2 = new Image();
+o2.src = './src/media/sprite/orange2.png'
+
 // SPRITE END
 
 class Player{
@@ -158,7 +179,8 @@ class Monster1 { // pig
         this.sprites = {
             pig: {
                 left: pigIdleLeft, cropWidth: 25, width: 6, height: 6,
-                dead: pigDead, cropWidth: 25, width: 6, height: 6
+                dead: pigDead, cropWidth: 25, width: 6, height: 6,
+                p2: p2, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.pig.left
@@ -179,7 +201,9 @@ class Monster2 { // slime
         this.sprites = {
             slime: {
                 left: slime, cropWidth: 25, width: 6, height: 6,
-                dead: slimeDead, cropWidth: 25, width: 6, height: 6
+                dead: slimeDead, cropWidth: 25, width: 6, height: 6,
+                s1: s1, cropWidth: 25, width: 6, height: 6,
+                s2: s2, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.slime.left
@@ -200,14 +224,17 @@ class Monster3 { // blue mushroom
         this.sprites = {
             golem: {
                 left: golem, cropWidth: 25, width: 6, height: 6,
-                dead: bmDead, cropWidth: 25, width: 6, height: 6
+                dead: bmDead, cropWidth: 25, width: 6, height: 6,
+                b1: b1, cropWidth: 25, width: 6, height: 6,
+                b2: b2, cropWidth: 25, width: 6, height: 6
+
             }
         }
         this.currentSprite = this.sprites.golem.left
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 1000, 290, this.currentCropWidth, this.currentSprite.height+20);
+        ctx.drawImage(this.currentSprite, 1000, 290, this.currentCropWidth, this.currentSprite.height+10);
     }
     update() {
         this.draw();
@@ -240,14 +267,16 @@ class Monster5 { // Orange mushroom
         this.sprites = {
             barlog: {
                 left: barlog, cropWidth: 25, width: 6, height: 6,
-                dead: omDead, cropWidth: 25, width: 6, height: 6
+                dead: omDead, cropWidth: 25, width: 6, height: 6,
+                o1: o1, cropWidth: 25, width: 6, height: 6,
+                o2: o2, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.barlog.left
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 580, 290, this.currentCropWidth, this.currentSprite.height+20); // middle slime
+        ctx.drawImage(this.currentSprite, 580, 290, this.currentCropWidth, this.currentSprite.height); // middle slime
     }
     update() {
         this.draw();
@@ -430,8 +459,11 @@ var slimeHealth = 100, pigHealth = 100, orangeMushroomHealth = 100, greenMushroo
 
 const edges = [new Edge({x:0, y: 0, width: 0, height: 615}), new Edge({x:1270, y: 0, width: 0, height: 615})];
 
+var tbhidk = 0;
+
 function animate() {
     requestAnimationFrame(animate);
+    tbhidk += .1;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.update(); monsters1.draw(); monsters2.draw(); monsters3.draw(); monsters4.draw(); monsters5.draw(); monsters6.draw(); heart1.draw(), heart2.draw(), heart3.draw(), heart4.draw(), heart5.draw();
     platforms.forEach(platform => platform.draw());
@@ -464,8 +496,6 @@ function animate() {
 
     // Player Hurt
     // slime    
-    // console.log(slimeHealth);
-    console.log(player.postion.y);
     if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && life.slime.dead === false) {  // slime left side
         health -= 10;
         player.postion.x -= 100;
@@ -520,6 +550,71 @@ function animate() {
         player.postion.x += 100;
     }
     // End of Player Hurt
+
+    console.log(tbhidk);
+
+    if (tbhidk >= 1 && tbhidk <= 4) {
+        monsters2.currentSprite = monsters2.sprites.slime.s1;
+        monsters2.currentCropWidth = 70;
+        monsters2.currentSprite.height = 50;
+    }
+
+    if (tbhidk >= 4 && tbhidk <= 7) {
+        monsters2.currentSprite = monsters2.sprites.slime.s2;
+        monsters2.currentCropWidth = 70;
+        monsters2.currentSprite.height = 50;
+    }
+
+    if (tbhidk >=  2 && tbhidk <= 5) {
+        monsters1.currentSprite = monsters1.sprites.pig.p2;
+        monsters1.currentCropWidth = 70;
+        monsters1.currentSprite.height = 50;
+    }
+
+    if (tbhidk >= 6 && tbhidk <= 8) {
+        monsters1.currentSprite = monsters1.sprites.pig.left;
+        monsters1.currentCropWidth = 70;
+        monsters1.currentSprite.height = 50;
+    }
+
+    if (tbhidk >= 1 && tbhidk <= 4) {
+        monsters3.currentSprite = monsters3.sprites.golem.b1;
+        monsters3.currentCropWidth = 70;
+        monsters3.currentSprite.height = 70;
+    }
+
+    if (tbhidk >= 5 && tbhidk <= 8) {
+        monsters3.currentSprite = monsters3.sprites.golem.b2;
+        monsters3.currentCropWidth = 70;
+        monsters3.currentSprite.height = 70;
+    }
+
+    if (tbhidk >= 11 && tbhidk <= 14) {
+        monsters3.currentSprite = monsters3.sprites.golem.left;
+        monsters3.currentCropWidth = 70;
+        monsters3.currentSprite.height = 70;
+        // tbhidk = 0;
+    }
+
+    if (tbhidk >= 0 && tbhidk <= 3) {
+        monsters5.currentSprite = monsters5.sprites.barlog.o1
+        monsters5.currentCropWidth = 70;
+        monsters5.currentSprite.height = 70;
+    }
+
+    if (tbhidk >= 4 && tbhidk <= 7) {
+        monsters5.currentSprite = monsters5.sprites.barlog.o2
+        monsters5.currentCropWidth = 70;
+        monsters5.currentSprite.height = 70;
+    }
+
+    if (tbhidk >= 10 && tbhidk <= 13) {
+        monsters5.currentSprite = monsters5.sprites.barlog.left
+        monsters5.currentCropWidth = 70;
+        monsters5.currentSprite.height = 70;
+        tbhidk = 0;
+    }
+
 
     // Monster Death
     if (slimeHealth <= 0) {
