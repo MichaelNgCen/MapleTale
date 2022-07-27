@@ -81,6 +81,8 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Win / Lose
 
+<img width="550" alt="Screen Shot 2022-07-27 at 1 31 02 AM" src="https://user-images.githubusercontent.com/38708266/181168745-ade83ef6-8450-47da-8802-8bf7b3f109e9.png">
+
 ### Day 6 - July 27, 2022
 
 
