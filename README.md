@@ -75,13 +75,9 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ### Day 5 - July 26, 2022
 ✅ Add new monsters
 
-✅ Monster get hit
+✅ Player / Monster get hit
 
-✅ Player get hit
-
-✅ Player die
-
-✅ Monster die
+✅ Player / Monster die
 
 ✅ Win / Lose
 
