@@ -97,6 +97,27 @@ o1.src = './src/media/sprite/orange1.png'
 const o2 = new Image();
 o2.src = './src/media/sprite/orange2.png'
 
+const g1 = new Image();
+g1.src = './src/media/sprite/g1.png'
+
+const g2 = new Image();
+g2.src = './src/media/sprite/g2.png'
+
+const p1 = new Image();
+p1.src = './src/media/sprite/p1.png'
+
+const pp2 = new Image();
+pp2.src = './src/media/sprite/pp2.png'
+
+const p3 = new Image();
+p3.src = './src/media/sprite/p3.png'
+
+const p4 = new Image();
+p4.src = './src/media/sprite/p4.png'
+
+const p5 = new Image();
+p5.src = './src/media/sprite/p5.png'
+
 // SPRITE END
 
 class Player{
@@ -247,14 +268,16 @@ class Monster4 { // Green mushroom
         this.sprites = {
             metal: {
                 left: metal, cropWidth: 25, width: 6, height: 6,
-                dead: gmDead, cropWidth: 25, width: 6, height: 6
+                dead: gmDead, cropWidth: 25, width: 6, height: 6,
+                g1: g1, cropWidth: 25, width: 6, height: 6,
+                g2: g2, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.metal.left
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 520, 70, this.currentCropWidth, this.currentSprite.height+10); 
+        ctx.drawImage(this.currentSprite, 520, 70, this.currentCropWidth, this.currentSprite.height-20); 
     }
     update() {
         this.draw();
@@ -289,7 +312,12 @@ class Monster6 { // Pink bean
         this.sprites = {
             pinkBean: {
                 left: pinkBean, cropWidth: 25, width: 6, height: 6,
-                dead: pbDead, cropWidth: 25, width: 6, height: 6
+                dead: pbDead, cropWidth: 25, width: 6, height: 6,
+                p1: p1, cropWidth: 25, width: 6, height: 6,
+                pp2: pp2, cropWidth: 25, width: 6, height: 6,
+                p3: p3, cropWidth: 25, width: 6, height: 6,
+                p4: p4, cropWidth: 25, width: 6, height: 6,
+                p5: p5, cropWidth: 25, width: 6, height: 6
             }
         }
         this.currentSprite = this.sprites.pinkBean.left
@@ -593,34 +621,84 @@ function animate() {
         monsters3.currentSprite = monsters3.sprites.golem.left;
         monsters3.currentCropWidth = 70;
         monsters3.currentSprite.height = 70;
-        // tbhidk = 0;
     }
 
-    if (tbhidk >= 0 && tbhidk <= 3) {
+    if (tbhidk >= 2 && tbhidk <= 5) {
         monsters5.currentSprite = monsters5.sprites.barlog.o1
         monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 70;
+        monsters5.currentSprite.height = 80;
     }
 
-    if (tbhidk >= 4 && tbhidk <= 7) {
+    if (tbhidk >= 6 && tbhidk <= 9) {
         monsters5.currentSprite = monsters5.sprites.barlog.o2
         monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 70;
+        monsters5.currentSprite.height = 80;
     }
 
     if (tbhidk >= 10 && tbhidk <= 13) {
         monsters5.currentSprite = monsters5.sprites.barlog.left
         monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 70;
+        monsters5.currentSprite.height = 80;
+        // tbhidk = 0;
+    }
+
+    if (tbhidk >= 2 && tbhidk <= 5) {
+        monsters4.currentSprite = monsters4.sprites.metal.g1
+        monsters4.currentCropWidth = 70;
+        monsters4.currentSprite.height = 80;
+    }
+
+    if (tbhidk >= 6 && tbhidk <= 9) {
+        monsters4.currentSprite = monsters4.sprites.metal.g2
+        monsters4.currentCropWidth = 70;
+        monsters4.currentSprite.height = 80;
+    }
+
+    if (tbhidk >= 10 && tbhidk <= 13) {
+        monsters4.currentSprite = monsters4.sprites.metal.left
+        monsters4.currentCropWidth = 70;
+        monsters4.currentSprite.height = 80;
+    }
+
+    if (tbhidk >= 2 && tbhidk <= 5) {
+        monsters6.currentSprite = monsters6.sprites.pinkBean.p1
+        monsters6.currentCropWidth = 100;
+        monsters6.currentSprite.height = 100;
+    }
+
+    if (tbhidk >= 6 && tbhidk <= 9) {
+        monsters6.currentSprite = monsters6.sprites.pinkBean.pp2
+        monsters6.currentCropWidth = 100;
+        monsters6.currentSprite.height = 100;
+    }
+
+    if (tbhidk >= 10 && tbhidk <= 13) {
+        monsters6.currentSprite = monsters6.sprites.pinkBean.p3
+        monsters6.currentCropWidth = 120;
+        monsters6.currentSprite.height = 100;
+    }
+
+    if (tbhidk >= 14 && tbhidk <= 17) {
+        monsters6.currentSprite = monsters6.sprites.pinkBean.p4
+        monsters6.currentCropWidth = 120;
+        monsters6.currentSprite.height = 100;
+    }
+
+    if (tbhidk >= 18 && tbhidk <= 21) {
+        monsters6.currentSprite = monsters6.sprites.pinkBean.p5
+        monsters6.currentCropWidth = 120;
+        monsters6.currentSprite.height = 100;
         tbhidk = 0;
     }
+
+
 
 
     // Monster Death
     if (slimeHealth <= 0) {
         life.slime.dead = true;
         monsters2.currentSprite = monsters2.sprites.slime.dead;
-        monsters2.currentCropWidth = 70;
+        monsters2.currentCropWidth = 100;
         monsters2.currentSprite.height = 50;
     }
 
@@ -635,7 +713,7 @@ function animate() {
         life.orangeMushroom.dead = true;
         monsters5.currentSprite = monsters5.sprites.barlog.dead;
         monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 60;
+        monsters5.currentSprite.height = 80;
     }
 
     if (blueMushroomHealth <= 0) {
@@ -649,7 +727,7 @@ function animate() {
         life.greenMushroom.dead = true;
         monsters4.currentSprite = monsters4.sprites.metal.dead;
         monsters4.currentCropWidth = 70;
-        monsters4.currentSprite.height = 50;
+        monsters4.currentSprite.height = 80;
     }
 
     if (pinkBeanHealth <= 0) {
