@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded',  () => {
     const instructions = document.getElementById('instructionScreen');
     const linkedin = document.getElementById('linkedin');
     const github = document.getElementById('github');
+    const info = document.getElementById('info');
     console.log(title);
     title.addEventListener("click", (e) => {
         title.style.display = "none";
@@ -27,4 +28,10 @@ document.addEventListener('DOMContentLoaded',  () => {
     github.addEventListener("click", (e) => {
         window.open('https://github.com/MichaelNgCen', '_blank');
     });
+
+    info.addEventListener("click", (e) => {
+        game.style.display = "none";
+        instructions.style.display = "block";
+    });
+    
 });
