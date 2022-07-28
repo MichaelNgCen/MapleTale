@@ -862,7 +862,7 @@ function animate() {
         life.orangeMushroom.dead = true;
         monsters5.currentSprite = monsters5.sprites.barlog.dead;
         monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 80;
+        monsters5.currentSprite.height = 60;
     }
 
     // BLUE MUSHROOM FAINTS
@@ -878,7 +878,7 @@ function animate() {
         life.greenMushroom.dead = true;
         monsters4.currentSprite = monsters4.sprites.metal.dead;
         monsters4.currentCropWidth = 70;
-        monsters4.currentSprite.height = 80;
+        monsters4.currentSprite.height = 50;
     }
 
     // PINK BEAN FAINTS
