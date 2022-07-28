@@ -7,14 +7,13 @@ MapleTale is a 2D Platform Game inspired by my favorite game growning up, Maples
 In MapleTale, players will be able to:
 - Move around using the keyboard
 - Attack monsters
-- Health bar that goes down
-- Climb ropes
-- Pick up items 
+- Heart that goes down when taking 
 - Turn off and on the bgm 
 
 In addition, this project will include:
 
 - Instructions on how to play
+- Sounds for jumping and attacking 
 
 ### Technologies, Libraries, and API's
 - Javascript
@@ -30,9 +29,6 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Create wireframe
 
-
-<img width="550" alt="Screen Shot 2022-07-21 at 8 17 34 PM" src="https://user-images.githubusercontent.com/38708266/180335811-ce64898c-d4e1-4f98-8cb8-b87b53dc3102.png">
-
 ### Day 1 - July 22, 2022
 ✅ Create background
 
@@ -42,26 +38,19 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Platform collision
 
-<img width="550" alt="Screen Shot 2022-07-22 at 10 21 41 PM" src="https://user-images.githubusercontent.com/38708266/180586997-94bc2ca9-a6a3-4f0e-b2ce-1c2fcef38cad.png">
-
 ### Day 2 - July 23, 2022
 ✅ Make user's spirte
 
 ✅ Add user's spirte
 
-✅ Animate user (bit janky)
+✅ Animate user
 
 ✅ Add background music
-
-<img width="550" alt="Screen Shot 2022-07-23 at 7 25 13 PM" src="https://user-images.githubusercontent.com/38708266/180626014-82c08408-3709-421d-b93c-2da642ddfa2c.png">
 
 ### Day 3 - July 24, 2022
 ✅ Make monster's spirte
 
 ✅ Create monsters
-
-<img width="550" alt="Screen Shot 2022-07-24 at 11 15 52 PM" src="https://user-images.githubusercontent.com/38708266/180692692-c2f4eac3-8500-4ef2-91e1-f2bab947d865.png">
-
 
 ### Day 4 - July 25, 2022
 ✅ Add monsters's sprite
@@ -69,8 +58,6 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ✅ Collison map's edge
 
 ✅ Added new cursor
-
-<img width="550" alt="Screen Shot 2022-07-25 at 5 47 57 PM" src="https://user-images.githubusercontent.com/38708266/180880257-d2b57b99-e1c3-4bed-a8d9-6b655ad0d2fe.png">
 
 ### Day 5 - July 26, 2022
 ✅ Add new monsters
@@ -81,9 +68,34 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Win / Lose
 
-<img width="550" alt="Screen Shot 2022-07-27 at 1 31 02 AM" src="https://user-images.githubusercontent.com/38708266/181168913-c5417eef-8666-417f-9d02-bd49fbde857f.png">
+✅ Hearts
 
 ### Day 6 - July 27, 2022
+
+✅ Made title and instruction
+
+✅ Added Monster Animation
+
+✅ Links to LinkedIn/GitHub
+
+### Day 7 - July 28, 2022
+✅ Sound for attack and jump
+
+✅ Favicon
+
+✅ Fix some bugs
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
