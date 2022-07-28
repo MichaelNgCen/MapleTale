@@ -15,6 +15,9 @@ In addition, this project will include:
 - Instructions on how to play
 - Sounds for jumping and attacking 
 
+### Wireframe
+<img width="550" alt="Screen Shot 2022-07-28 at 3 41 15 PM" src="https://user-images.githubusercontent.com/38708266/181623589-16a0861d-4bf4-4b30-90d0-5be53f83a8ca.png">
+
 ### Technologies, Libraries, and API's
 - Javascript
 - Canvas
