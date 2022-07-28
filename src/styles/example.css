@@ -25,7 +25,8 @@
 }
 .title-screen{
     font-family: 'Press Start 2P', cursive;
-    z-index: 10;;
+    padding-bottom: 10px;
+    z-index: 100;
     font-size: 15vh;
     color: orange;
     text-shadow: black 1vw 1vh;
@@ -54,15 +55,15 @@
 
 #tb{
     position: fixed;
-    left: 1;
-    bottom: 1;
     z-index: -1;
 }
 
 #ib{
     position: fixed;
+    margin-top: -10px;
+    margin-left: -10px;
+    height: 100%;
     width: 100%;
-    height: 100;
     z-index: -1;
 }
 
