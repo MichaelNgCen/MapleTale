@@ -579,7 +579,7 @@ function animate() {
     }
     // End of Player Hurt
 
-    console.log(tbhidk);
+    // console.log(tbhidk);
 
     if (tbhidk >= 1 && tbhidk <= 4) {
         monsters2.currentSprite = monsters2.sprites.slime.s1;
