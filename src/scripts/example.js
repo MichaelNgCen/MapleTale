@@ -169,6 +169,8 @@ ar4.src = './src/media/sprite/attackRight3.png'
 
 // SPRITE END
 
+// PLAYER
+
 class Player{
     constructor() {
         this.postion = {
@@ -255,11 +257,11 @@ class Platform {
     }
 }
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
+// PLAYER END
 
-class Monster1 { // pig
+// ENEMY PIG
+
+class Monster1 { 
     constructor() {
         this.image = pigIdleLeft
         this.frames = 0
@@ -281,7 +283,11 @@ class Monster1 { // pig
     }
 }
 
-class Monster2 { // slime
+// ENEMY PIG END
+
+// ENEMY SLIME
+
+class Monster2 { 
     constructor() {
         this.image = slime
         this.frames = 0
@@ -300,11 +306,15 @@ class Monster2 { // slime
         ctx.drawImage(this.currentSprite, 400, 540, this.currentCropWidth, this.currentSprite.height+25); 
     }
     update() {
-        // this.currentSprite ==
         this.draw();
     }
 }
-class Monster3 { // blue mushroom
+
+// ENEMY SLIME END
+
+// ENEMY BLUE MUSHROOM
+
+class Monster3 { 
     constructor() {
         this.image = golem
         this.frames = 0
@@ -327,7 +337,12 @@ class Monster3 { // blue mushroom
         this.draw();
     }
 }
-class Monster4 { // Green mushroom
+
+// ENEMY BLUE MUSHROOM END
+
+// ENEMY GREEN MUSHROOM
+
+class Monster4 {
     constructor() {
         this.image = metal
         this.frames = 0
@@ -349,7 +364,12 @@ class Monster4 { // Green mushroom
         this.draw();
     }
 }
-class Monster5 { // Orange mushroom
+
+// ENEMY GREEN MUSHROOM END
+
+// ENEMY ORANGE MUSHROOM
+
+class Monster5 { 
     constructor() {
         this.image = barlog
         this.frames = 0
@@ -371,7 +391,12 @@ class Monster5 { // Orange mushroom
         this.draw();
     }
 }
-class Monster6 { // Pink bean
+
+// ENEMY ORANGE MUSHROOM END
+
+// ENEMY PINK BEAN
+
+class Monster6 { 
     constructor() {
         this.image = pinkBean
         this.frames = 0
@@ -397,6 +422,10 @@ class Monster6 { // Pink bean
     }
 }
 
+// ENEMY PINK BEAN END
+
+// EDGE / BOUNDARY
+
 class Edge {
     constructor({x, y, width, height}) {
         this.position = {
@@ -411,6 +440,10 @@ class Edge {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }
+
+// EDGE / BOUNDARY END
+
+// HEARTS
 
 class Heart1 {  
     constructor() {
@@ -432,6 +465,7 @@ class Heart1 {
         this.draw();
     }
 }
+
 class Heart2 {  
     constructor() {
         this.image = hrt
@@ -452,6 +486,7 @@ class Heart2 {
         this.draw();
     }
 }
+
 class Heart3 {  
     constructor() {
         this.image = hrt
@@ -515,6 +550,10 @@ class Heart5 {
     }
 }
 
+// HEARTS END
+
+// NEW INSTANCES
+
 const player = new Player();
 const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // first haystack
     new Platform({x:80, y: 490, width: 120, height: 0}), // first edge platform 
@@ -532,6 +571,10 @@ const platforms = [new Platform({x:250, y: 550, width: 100, height: 0}), // firs
 
 const monsters1 = new Monster1(), monsters2 = new Monster2(), monsters3 = new Monster3(), monsters4 = new Monster4(), monsters5 = new Monster5(), monsters6 = new Monster6();
 const heart1 = new Heart1(), heart2 = new Heart2(), heart3 = new Heart3(), heart4 = new Heart4(), heart5 = new Heart5();
+
+// NEW INSTANCES END
+
+// VARAIBLES
 
 const keys = {
     right: {pressed: false},
@@ -556,6 +599,10 @@ const edges = [new Edge({x:0, y: 0, width: 0, height: 615}), new Edge({x:1270, y
 var monsterFrames = 0;
 var playerFrames = 0;
 
+// VARAIBLES END
+
+// FUNCTIONS
+
 function animate() {
     requestAnimationFrame(animate);
     monsterFrames += 4;
@@ -566,32 +613,39 @@ function animate() {
     edges.forEach(edge => edge.draw());
     if (keys.right.pressed) player.postion.x += 10;
     if (keys.left.pressed) player.postion.x -= 10;
+
+    // PLATFORM COLISION
     platforms.forEach(platform => {
     if (player.postion.y + player.height-10 <= platform.position.y && player.postion.y + player.height+player.velocity.y >= platform.position.y && player.postion.x + player.width >= platform.position.x && player.postion.x <= platform.position.x + platform.width) player.velocity.y = 0;})
     edges.forEach(edge => { if (player.postion.x < 0) player.postion.x = 5; if (player.postion.x > 1220) player.postion.x = 1215;})
-    // Attack
-    // slimed
+    // PLATFORM COLISION END
+
+    // ATTACK SLIME
     if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x <= 425) slimeHealth -= 5;
     if (player.postion.x >= 435 && keys.attackk.pressed === true && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x <= 455) slimeHealth -= 5;
-    // pig
+
+    // ATTACK PIG
     if (player.postion.x >= 535 && keys.attackj.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 590) orangeMushroomHealth -= 3;
     if (player.postion.x >= 600 && keys.attackk.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 650) orangeMushroomHealth -= 3;
-    // orange mushroom
+
+    // ATTACK ORANGE MUSHROOM
     if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 1000) blueMushroomHealth -= 2;
     if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 1090) blueMushroomHealth -= 2;
-    // blue mushroom
+
+    // ATTACK GREEN MUSHROOM
     if (player.postion.x >= 890 && keys.attackj.pressed === true && player.postion.y >= 515.5 && player.postion.y <= 530.5 && player.postion.x <= 930) pigHealth -= 5;
     if (player.postion.x <= 1010 && keys.attackk.pressed === true && player.postion.y >= 515.5 && player.postion.y <= 530.5 && player.postion.x >= 990) pigHealth -= 5;
-    // pink bean
+
+    // ATTACK BLUE MUSHROOM
     if (player.postion.x >= 475 && keys.attackj.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 530) greenMushroomHealth -= 2;
     if (player.postion.x >= 540 && keys.attackk.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 610) greenMushroomHealth -= 2;
-    // green mushroom
+
+    // ATTACK PINK BEAN
     if (player.postion.x >= 950 && keys.attackj.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 1000) pinkBeanHealth -= .5;
     if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 1065) pinkBeanHealth -= .5;
-    // End of attack
+    // END ATTACKS
 
-    // Player Hurt
-    // slime    
+   // HURT BY SLIME
     if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && life.slime.dead === false) {  // slime left side
         health -= 10;
         player.postion.x -= 100;
@@ -600,7 +654,8 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-    // pig
+
+    // HURT BY PIG
     if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
@@ -609,7 +664,8 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-    // orange mushroom
+
+    // HURT BY ORANGE MUSHROOM
     if (player.postion.x === 580 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.orangeMushroom.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
@@ -618,7 +674,8 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-    // blue mushroom
+
+    // HURT BY BLUE MUSHROOM
     if (player.postion.x === 985 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.blueMushroom.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
@@ -627,7 +684,8 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-    // green mushroom
+
+    // HURT BY GREEN MUSHROOM
     if (player.postion.x === 500 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.greenMushroom.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
@@ -636,7 +694,8 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-    // pink bean
+
+    // HURT BY PINK BEAN
     if (player.postion.x === 980 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.pinkBean.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
@@ -645,85 +704,79 @@ function animate() {
         health -= 10;
         player.postion.x += 100;
     }
-    // End of Player Hurt
+    // END HURT
 
-    // console.log(monsterFrames);
-
+    // ANIMATION FOR SLIME
     if (monsterFrames >= 1 && monsterFrames <= 30) {
         monsters2.currentSprite = monsters2.sprites.slime.s1;
     }
-
     if (monsterFrames >= 31 && monsterFrames <= 60) {
         monsters2.currentSprite = monsters2.sprites.slime.s2;
     }
-
+    
+    // ANIMATION FOR PIG
     if (monsterFrames >=  1 && monsterFrames <= 30) {
         monsters1.currentSprite = monsters1.sprites.pig.p2;
     }
-
     if (monsterFrames >= 31 && monsterFrames <= 60) {
         monsters1.currentSprite = monsters1.sprites.pig.left;
     }
 
+    // ANIMATION FOR ORANGE MUSHROOM
     if (monsterFrames >= 1 && monsterFrames <= 20) {
         monsters3.currentSprite = monsters3.sprites.golem.b1;
     }
-
     if (monsterFrames >= 21 && monsterFrames <= 40) {
         monsters3.currentSprite = monsters3.sprites.golem.b2;
     }
-
     if (monsterFrames >= 41 && monsterFrames <= 60) {
         monsters3.currentSprite = monsters3.sprites.golem.left;
     }
 
+
+    // ANIMATION FOR BLUE MUSHROOM
     if (monsterFrames >= 1 && monsterFrames <= 20) {
         monsters5.currentSprite = monsters5.sprites.barlog.o1
     }
-
     if (monsterFrames >= 21 && monsterFrames <= 40) {
         monsters5.currentSprite = monsters5.sprites.barlog.o2
     }
-
     if (monsterFrames >= 41 && monsterFrames <= 60) {
         monsters5.currentSprite = monsters5.sprites.barlog.left
     }
 
+    // ANIMATION FOR GREEN MUSHROOM
     if (monsterFrames >= 1 && monsterFrames <= 20) {
         monsters4.currentSprite = monsters4.sprites.metal.g1
     }
-
     if (monsterFrames >= 21 && monsterFrames <= 40) {
         monsters4.currentSprite = monsters4.sprites.metal.g2
     }
-
     if (monsterFrames >= 41 && monsterFrames <= 60) {
         monsters4.currentSprite = monsters4.sprites.metal.left
     }
 
+    // ANIMATION FOR PINK BEAN
     if (monsterFrames >= 1 && monsterFrames <= 12) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p1
     }
-
     if (monsterFrames >= 13 && monsterFrames <= 24) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.pp2
     }
-
     if (monsterFrames >= 25 && monsterFrames <= 36) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p3
     }
-
     if (monsterFrames >= 37 && monsterFrames <= 48) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p4
     }
-
     if (monsterFrames >= 49 && monsterFrames <= 60) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p5
     }
 
+    // RESET MONSTER FRAMES
     if (monsterFrames === 60) monsterFrames = 0;
 
-    // console.log(playerFrames);
+    // ANAMATION FOR WALKING LEFT
     if (playerFrames >= 1 && playerFrames <= 15 && keys.left.pressed === true) {
         player.currentSprite = player.sprites.walk.pw1
     }
@@ -737,6 +790,7 @@ function animate() {
         player.currentSprite = player.sprites.walk.pw4
     }
 
+    // ANAMATION FOR WALKING RIGHT
     if (playerFrames >= 1 && playerFrames <= 20 && keys.right.pressed === true) {
         player.currentSprite = player.sprites.walk.pwr2
     }
@@ -750,6 +804,7 @@ function animate() {
         player.currentSprite = player.sprites.walk.pwr5
     }
 
+    // ANAMATION FOR ATTACKING LEFT
     if (playerFrames >= 1 && playerFrames <= 12 && keys.attackk.pressed === true) {
         player.currentSprite = player.sprites.attack.left
     }
@@ -765,7 +820,8 @@ function animate() {
     if (playerFrames >= 49 && playerFrames <= 60 && keys.attackk.pressed === true) {
         player.currentSprite = player.sprites.attack.al4
     }
-
+    
+    // ANAMATION FOR ATTACKING RIGHT
     if (playerFrames >= 1 && playerFrames <= 12 && keys.attackj.pressed === true) {
         player.currentSprite = player.sprites.attack.right
     }
@@ -782,9 +838,10 @@ function animate() {
         player.currentSprite = player.sprites.attack.ar4
     }
 
+    // RESET PLAYER FRAMES
     if (playerFrames === 60) playerFrames = 0;
 
-    // Monster Death
+    // SLIME FAINTS
     if (slimeHealth <= 0) {
         life.slime.dead = true;
         monsters2.currentSprite = monsters2.sprites.slime.dead;
@@ -792,6 +849,7 @@ function animate() {
         monsters2.currentSprite.height = 50;
     }
 
+    // PIG FAINTS
     if (pigHealth <= 0) {
         life.pig.dead = true;
         monsters1.currentSprite = monsters1.sprites.pig.dead;
@@ -799,6 +857,7 @@ function animate() {
         monsters1.currentSprite.height = 40;
     }
 
+    // ORANGE MUSHROOM FAINTS
     if (orangeMushroomHealth <= 0) {
         life.orangeMushroom.dead = true;
         monsters5.currentSprite = monsters5.sprites.barlog.dead;
@@ -806,6 +865,7 @@ function animate() {
         monsters5.currentSprite.height = 80;
     }
 
+    // BLUE MUSHROOM FAINTS
     if (blueMushroomHealth <= 0) {
         life.blueMushroom.dead = true;
         monsters3.currentSprite = monsters3.sprites.golem.dead;
@@ -813,6 +873,7 @@ function animate() {
         monsters3.currentSprite.height = 60;
     }
 
+    // GREEN MUSHROOM FAINTS
     if (greenMushroomHealth <= 0) {
         life.greenMushroom.dead = true;
         monsters4.currentSprite = monsters4.sprites.metal.dead;
@@ -820,47 +881,56 @@ function animate() {
         monsters4.currentSprite.height = 80;
     }
 
+    // PINK BEAN FAINTS
     if (pinkBeanHealth <= 0) {
         life.pinkBean.dead = true;
         monsters6.currentSprite = monsters6.sprites.pinkBean.dead;
         monsters6.currentCropWidth = 100;
         monsters6.currentSprite.height = 90;
     }
-    // End of Monster Death
 
-    // Player Death
-
+    // PLAYER LOSES ONE HEART
     if (health <= 80) {
         heart5.currentSprite = heart5.sprites.hrt.hurt;
         heart5.currentCropWidth = 0;
         heart5.currentSprite.height = 0;
     }
+
+    // PLAYER LOSES TWO HEARTS
     if (health <= 60) {
         heart4.currentSprite = heart4.sprites.hrt.hurt;
         heart4.currentCropWidth = 0;
         heart4.currentSprite.height = 0;
     }
+
+    // PLAYER LOSES THREE HEARTS
     if (health <= 40) {
         heart3.currentSprite = heart3.sprites.hrt.hurt;
         heart3.currentCropWidth = 0;
         heart3.currentSprite.height = 0;
     }
+
+    // PLAYER LOSES FOUR HEARTS
     if (health <= 20) {
         heart2.currentSprite = heart2.sprites.hrt.hurt;
         heart2.currentCropWidth = 0;
         heart2.currentSprite.height = 0;
     }
+    
+    // PLAYER LOSES FIVE HEARTS
     if (health <= .1) {
         heart1.currentSprite = heart1.sprites.hrt.hurt;
         heart1.currentCropWidth = 0;
         heart1.currentSprite.height = 0;
     }
 
+    // PLAYER LOSES GAME
     if (health === 0) {
         location.reload(true);
         alert("You Fainted");
     }
-    // End of Player Death
+
+    // PLAYER WINS GAME
     if (life.blueMushroom.dead === true && life.greenMushroom.dead === true && life.orangeMushroom.dead === true && life.pinkBean.dead === true && life.pig.dead === true && life.slime.dead === true) {
         location.reload(true);
         alert("You win");
@@ -869,6 +939,8 @@ function animate() {
 
 animate();
 
+
+// KEYBOARD CONTROLS
 addEventListener('keydown', ({key}) => {
     switch (key) {
         case "a":
