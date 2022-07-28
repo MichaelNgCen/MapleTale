@@ -16,10 +16,11 @@ document.addEventListener('DOMContentLoaded',  () => {
     const im = document.querySelector('#im');
 
     // TITLE SCREEN
-    window.onload = function() {
-        im.play();
-    }
+    // window.onload = function() {
+    //     im.play();
+    // }
     title.addEventListener("click", (e) => {
+        im.play();
         lg.play();
         title.style.display = "none";
         instructions.style.display = "block";

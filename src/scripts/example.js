@@ -1,6 +1,11 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
+const jm = document.querySelector('#jm');
+const game = document.getElementById('game');
+const aa = document.querySelector('#as');
+const bs = document.querySelector('#bs');
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -613,88 +618,136 @@ function animate() {
     // PLATFORM COLISION END
 
     // ATTACK SLIME
-    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x <= 425) slimeHealth -= 5;
-    if (player.postion.x >= 435 && keys.attackk.pressed === true && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x <= 455) slimeHealth -= 5;
-
-    // ATTACK PIG
-    if (player.postion.x >= 535 && keys.attackj.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 590) orangeMushroomHealth -= 3;
-    if (player.postion.x >= 600 && keys.attackk.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 650) orangeMushroomHealth -= 3;
+    if (player.postion.x >= 345 && keys.attackj.pressed === true && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x <= 425 && life.slime.dead === false) {
+        aa.play();
+        slimeHealth -= 5;
+    }
+    if (player.postion.x >= 435 && keys.attackk.pressed === true && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x <= 455 && life.slime.dead === false) {
+        aa.play();
+        slimeHealth -= 5;
+    }
 
     // ATTACK ORANGE MUSHROOM
-    if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 1000) blueMushroomHealth -= 2;
-    if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 1090) blueMushroomHealth -= 2;
+    if (player.postion.x >= 535 && keys.attackj.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 590 && life.orangeMushroom.dead === false) {
+        aa.play();
+        orangeMushroomHealth -= 3;
+    }
+    if (player.postion.x >= 600 && keys.attackk.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 650 && life.orangeMushroom.dead === false) {
+        aa.play();
+        orangeMushroomHealth -= 3;
+    }
+
+    // ATTACK ORANGE MUSHROOM
+    if (player.postion.x >= 945 && keys.attackj.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 1000 && life.blueMushroom.dead === false) {
+        aa.play();
+        blueMushroomHealth -= 2;
+    }
+    if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 270 && player.postion.y <= 285 && player.postion.x <= 1090 && life.blueMushroom.dead === false) {
+        aa.play();
+        blueMushroomHealth -= 2;
+    }
 
     // ATTACK GREEN MUSHROOM
-    if (player.postion.x >= 890 && keys.attackj.pressed === true && player.postion.y >= 515.5 && player.postion.y <= 530.5 && player.postion.x <= 930) pigHealth -= 5;
-    if (player.postion.x <= 1010 && keys.attackk.pressed === true && player.postion.y >= 515.5 && player.postion.y <= 530.5 && player.postion.x >= 990) pigHealth -= 5;
+    if (player.postion.x >= 890 && keys.attackj.pressed === true && player.postion.y >= 515.5 && player.postion.y <= 530.5 && player.postion.x <= 930 && life.pig.dead === false) {
+        aa.play();
+        pigHealth -= 5;
+    }
+    if (player.postion.x <= 1010 && keys.attackk.pressed === true && player.postion.y >= 515.5 && player.postion.y <= 530.5 && player.postion.x >= 990 && life.pig.dead === false) {
+        aa.play();
+        pigHealth -= 5;
+    }
 
     // ATTACK BLUE MUSHROOM
-    if (player.postion.x >= 475 && keys.attackj.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 530) greenMushroomHealth -= 2;
-    if (player.postion.x >= 540 && keys.attackk.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 610) greenMushroomHealth -= 2;
+    if (player.postion.x >= 475 && keys.attackj.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 530 && life.greenMushroom.dead === false) {
+        aa.play();
+        greenMushroomHealth -= 2;
+    }
+    if (player.postion.x >= 540 && keys.attackk.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 610 && life.greenMushroom.dead === false) {
+        aa.play();
+        greenMushroomHealth -= 2;
+    }
 
     // ATTACK PINK BEAN
-    if (player.postion.x >= 950 && keys.attackj.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 1000) pinkBeanHealth -= .5;
-    if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 1065) pinkBeanHealth -= .5;
+    if (player.postion.x >= 950 && keys.attackj.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 1000) {
+        aa.play();
+        pinkBeanHealth -= 1;
+    }
+    if (player.postion.x >= 1010 && keys.attackk.pressed === true && player.postion.y >= 30 && player.postion.y <= 45 && player.postion.x <= 1065) {
+        aa.play();
+        pinkBeanHealth -= 1;
+    }
     // END ATTACKS
 
    // HURT BY SLIME
     if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && life.slime.dead === false) {  // slime left side
         health -= 10;
         player.postion.x -= 100;
+        bs.play();
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x === 420 && life.slime.dead === false) { // slime right side
         health -= 10;
         player.postion.x += 100;
+        bs.play();
     }
 
     // HURT BY PIG
     if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
         health -= 10;
-        player.postion.x -= 100;
+        player.postion.x += 100;
+        bs.play();
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 990 && life.pig.dead === false) {  // pig right side
         health -= 10;
         player.postion.x += 100;
+        bs.play();
     }
 
     // HURT BY ORANGE MUSHROOM
     if (player.postion.x === 580 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.orangeMushroom.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
+        bs.play();
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 640 && life.orangeMushroom.dead === false) {  // pig right side
         health -= 10;
         player.postion.x += 100;
+        bs.play();
     }
 
     // HURT BY BLUE MUSHROOM
     if (player.postion.x === 985 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.blueMushroom.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
+        bs.play();
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 1050 && life.blueMushroom.dead === false) {  // pig right side
         health -= 10;
         player.postion.x += 100;
+        bs.play();
     }
 
     // HURT BY GREEN MUSHROOM
     if (player.postion.x === 500 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.greenMushroom.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
+        bs.play();
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 580 && life.greenMushroom.dead === false) {  // pig right side
         health -= 10;
         player.postion.x += 100;
+        bs.play();
     }
 
     // HURT BY PINK BEAN
     if (player.postion.x === 980 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.pinkBean.dead === false) { // pig left side
         health -= 10;
         player.postion.x -= 100;
+        bs.play();
     }
     if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 1050 && life.pinkBean.dead === false) {  // pig right side
         health -= 10;
         player.postion.x += 100;
+        bs.play();
     }
     // END HURT
 
@@ -919,7 +972,7 @@ function animate() {
     // PLAYER WINS GAME
     if (life.blueMushroom.dead === true && life.greenMushroom.dead === true && life.orangeMushroom.dead === true && life.pinkBean.dead === true && life.pig.dead === true && life.slime.dead === true) {
         location.reload(true);
-        alert("You win");
+        alert("You Win");
     }        
 }
 
@@ -946,6 +999,7 @@ addEventListener('keydown', ({key}) => {
             player.currentSprite = player.sprites.jump.right;
             player.currentCropWidth = player.sprites.jump.cropWidth
             player.width = player.sprites.jump.width
+            jm.play();
             break;
         case "s":
             player.currentSprite = player.sprites.prone.right;
