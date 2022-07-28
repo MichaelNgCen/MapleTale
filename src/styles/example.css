@@ -1,15 +1,14 @@
 #background {
-    position: fixed;  /* Stay in place */
-    z-index: 1000; /* Ensure div tag stays behind content */
-    top: 0; /* Stay at the top */
-    left: 0; /* Stay at the left */
-    display: block; /* Display block to enable the image to be responsive */
-    pointer-events: none;  /* Disable pointer events */
+    position: fixed;  
+    z-index: 1000; 
+    top: 0; 
+    left: 0; 
+    display: block; 
+    pointer-events: none; 
 }
 #canvas {
-    z-index: 1001; /* Ensure div tag stays behind content */
+    z-index: 1001; 
 }
-/* title will be full screen */
 #title {
     position: absolute;
     z-index: -5;

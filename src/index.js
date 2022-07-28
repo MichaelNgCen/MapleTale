@@ -1,7 +1,8 @@
 
 document.addEventListener('DOMContentLoaded',  () => {
+
+    // GET THE DOM ELEMENTS
     const main = document.getElementById('main');
-    // get element by id
     const title = document.getElementById('titleScreen');
     const game = document.getElementById('game');
     const instructions = document.getElementById('instructionScreen');
@@ -12,30 +13,35 @@ document.addEventListener('DOMContentLoaded',  () => {
     const stopButton = document.getElementById('stopButton');
     const bgm = document.getElementById('bgm');
 
-    console.log(title);
+    // TITLE SCREEN
     title.addEventListener("click", (e) => {
         title.style.display = "none";
         instructions.style.display = "block";
     });
 
+    // INSTRUCTIONS SCREEN
     instructions.addEventListener("click", (e) => {
         instructions.style.display = "none";
         game.style.display = "block";
     });
 
+    // LINKEDIN
     linkedin.addEventListener("click", (e) => {
         window.open('https://www.linkedin.com/in/michaelngcen/', '_blank');
     });
 
+    // GITHUB
     github.addEventListener("click", (e) => {
         window.open('https://github.com/MichaelNgCen', '_blank');
     });
 
+    // INFOMATION
     info.addEventListener("click", (e) => {
         game.style.display = "none";
         instructions.style.display = "block";
     });
 
+    // MUSIC
     playButton.addEventListener('click', () => {
         bgm.play();
         playButton.style.display = "none";
@@ -46,6 +52,4 @@ document.addEventListener('DOMContentLoaded',  () => {
         playButton.style.display = "block";
         stopButton.style.display = "none";
       });
-      
-    
 });
