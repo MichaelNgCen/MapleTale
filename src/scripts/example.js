@@ -605,7 +605,7 @@ var playerFrames = 0;
 
 function animate() {
     requestAnimationFrame(animate);
-    monsterFrames += 4;
+    monsterFrames += 2;
     playerFrames += 4;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.update(); monsters1.draw(); monsters2.draw(); monsters3.draw(); monsters4.draw(); monsters5.draw(); monsters6.draw(); heart1.draw(), heart2.draw(), heart3.draw(), heart4.draw(), heart5.draw();
