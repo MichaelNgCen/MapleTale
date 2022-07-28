@@ -12,9 +12,15 @@ document.addEventListener('DOMContentLoaded',  () => {
     const playButton = document.getElementById('playButton');
     const stopButton = document.getElementById('stopButton');
     const bgm = document.getElementById('bgm');
+    const lg = document.querySelector('#lg');
+    const im = document.querySelector('#im');
 
     // TITLE SCREEN
+    window.onload = function() {
+        im.play();
+    }
     title.addEventListener("click", (e) => {
+        lg.play();
         title.style.display = "none";
         instructions.style.display = "block";
     });
@@ -23,6 +29,8 @@ document.addEventListener('DOMContentLoaded',  () => {
     instructions.addEventListener("click", (e) => {
         instructions.style.display = "none";
         game.style.display = "block";
+        im.pause();
+        bgm.play();
     });
 
     // LINKEDIN
@@ -41,14 +49,13 @@ document.addEventListener('DOMContentLoaded',  () => {
         instructions.style.display = "block";
     });
 
-    // MUSIC
     playButton.addEventListener('click', () => {
-        bgm.play();
+        bgm.pause();
         playButton.style.display = "none";
         stopButton.style.display = "block";
       });
       stopButton.addEventListener('click', () => {
-        bgm.pause();
+        bgm.play();
         playButton.style.display = "block";
         stopButton.style.display = "none";
       });

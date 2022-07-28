@@ -44,13 +44,13 @@
 
 #playButton {
     font-family: 'Press Start 2P', cursive;;
-    background-color: rgb(130, 255, 161);
+    background-color: rgb(251, 51, 51);
     color: rgb(0, 0, 0);
     border-radius: 50%;
     position: fixed;
     top: 660px;
     left: 1110px;
-    z-index: 1002; 
+    z-index: 1001; 
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0; 
@@ -158,7 +158,7 @@ button {
 #stopButton {
     display: none;
     font-family: 'Press Start 2P', cursive;
-    background-color: rgb(255, 60, 60);
+    background-color: rgb(115, 255, 60);
     position: fixed;
     border-radius: 50%;
     top: 660px;
