@@ -130,6 +130,19 @@ pw3.src = './src/media/sprite/walkLeft4.png'
 const pw4 = new Image();
 pw4.src = './src/media/sprite/walkLeft5.png'
 
+const pwr2 = new Image();
+pwr2.src = './src/media/sprite/walkRight2.png'
+
+const pwr3 = new Image();
+pwr3.src = './src/media/sprite/walkRight3.png'
+
+const pwr4 = new Image();
+pwr4.src = './src/media/sprite/walkRight4.png'
+
+const pwr5 = new Image();
+pwr5.src = './src/media/sprite/walkRight5.png'
+
+
 // SPRITE END
 
 class Player{
@@ -158,7 +171,11 @@ class Player{
                 pw2: pw2, cropWidth: 61.8, width: 61.8, height: 86,
                 pw3: pw3, cropWidth: 61.8, width: 61.8, height: 86,
                 pw4: pw4, cropWidth: 61.8, width: 61.8, height: 86,
-                right: walkingRight, cropWidth: 61.8, width: 61.8, height: 86
+                right: walkingRight, cropWidth: 61.8, width: 61.8, height: 86,
+                pwr2: pwr2, cropWidth: 61.8, width: 61.8, height: 86,
+                pwr3: pwr3, cropWidth: 61.8, width: 61.8, height: 86,
+                pwr4: pwr4, cropWidth: 61.8, width: 61.8, height: 86,
+                pwr5: pwr5, cropWidth: 61.8, width: 61.8, height: 86
             },
             jump: {
                 right: jumpRight, cropWidth: 55, width: 55, height: 86,  
@@ -724,18 +741,18 @@ function animate() {
         // playerFrames = 0;
     }
 
-    if (playerFrames >= 1 && playerFrames <= 15 && keys.left.pressed === true) {
-        player.currentSprite = player.sprites.walk.pr1
+    if (playerFrames >= 1 && playerFrames <= 15 && keys.right.pressed === true) {
+        player.currentSprite = player.sprites.walk.pwr2
     }
-    if (playerFrames >= 16 && playerFrames <= 30 && keys.left.pressed === true) {
-        player.currentSprite = player.sprites.walk.pr2
+    if (playerFrames >= 16 && playerFrames <= 30 && keys.right.pressed === true) {
+        player.currentSprite = player.sprites.walk.pwr3
     }
-    if (playerFrames >= 31 && playerFrames <= 45 && keys.left.pressed === true) {
-        player.currentSprite = player.sprites.walk.pr3
+    if (playerFrames >= 31 && playerFrames <= 45 && keys.right.pressed === true) {
+        player.currentSprite = player.sprites.walk.pwr4
     }
-    if (playerFrames >= 46 && playerFrames <= 60 && keys.left.pressed === true) {
-        player.currentSprite = player.sprites.walk.pr4
-        // playerFrames = 0;
+    if (playerFrames >= 46 && playerFrames <= 60 && keys.right.pressed === true) {
+        player.currentSprite = player.sprites.walk.pwr5
+        playerFrames = 0
     }
 
 
