@@ -148,12 +148,6 @@ al1.src = './src/media/sprite/attackLeft0.png'
 const al2 = new Image();
 al2.src = './src/media/sprite/attackLeft1.png'
 
-const al3 = new Image();
-al3.src = './src/media/sprite/attackLeft2.png'
-
-const al4 = new Image();
-al4.src = './src/media/sprite/attackLeft3.png'
-
 const ar1 = new Image();
 ar1.src = './src/media/sprite/attackRight0.png'
 
@@ -215,8 +209,6 @@ class Player{
                 left: attackLeft, cropWidth: 73.3, width: 67.3, height: 80,
                 al1: al1, cropWidth: 73.3, width: 67.3, height: 80,
                 al2: al2, cropWidth: 73.3, width: 67.3, height: 80,
-                al3: al3, cropWidth: 73.3, width: 67.3, height: 80,
-                al4: al4, cropWidth: 73.3, width: 67.3, height: 80,
                 ar1: ar1, cropWidth: 73.3, width: 67.3, height: 80,
                 ar2: ar2, cropWidth: 73.3, width: 67.3, height: 80,
                 ar3: ar3, cropWidth: 73.3, width: 67.3, height: 80,
@@ -805,22 +797,16 @@ function animate() {
     }
 
     // ANAMATION FOR ATTACKING LEFT
-    if (playerFrames >= 1 && playerFrames <= 12 && keys.attackk.pressed === true) {
+    if (playerFrames >= 1 && playerFrames <= 20 && keys.attackk.pressed === true) {
         player.currentSprite = player.sprites.attack.left
     }
-    if (playerFrames >= 13 && playerFrames <= 24 && keys.attackk.pressed === true) {
+    if (playerFrames >= 21 && playerFrames <= 40 && keys.attackk.pressed === true) {
         player.currentSprite = player.sprites.attack.al1
     }
-    if (playerFrames >= 25 && playerFrames <= 36 && keys.attackk.pressed === true) {
+    if (playerFrames >= 41 && playerFrames <= 60 && keys.attackk.pressed === true) {
         player.currentSprite = player.sprites.attack.al2
     }
-    if (playerFrames >= 37 && playerFrames <= 48 && keys.attackk.pressed === true) {
-        player.currentSprite = player.sprites.attack.al3
-    }
-    if (playerFrames >= 49 && playerFrames <= 60 && keys.attackk.pressed === true) {
-        player.currentSprite = player.sprites.attack.al4
-    }
-    
+
     // ANAMATION FOR ATTACKING RIGHT
     if (playerFrames >= 1 && playerFrames <= 12 && keys.attackj.pressed === true) {
         player.currentSprite = player.sprites.attack.right
