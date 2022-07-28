@@ -971,10 +971,8 @@ function animate() {
 
     // PLAYER WINS GAME
     if (life.blueMushroom.dead === true && life.greenMushroom.dead === true && life.orangeMushroom.dead === true && life.pinkBean.dead === true && life.pig.dead === true && life.slime.dead === true) {
-        game.addEventListener("click", function () {
-            location.reload(true);
-            alert("You Win");
-        })
+        location.reload(true);
+        alert("You Win");
     }        
 }
 
