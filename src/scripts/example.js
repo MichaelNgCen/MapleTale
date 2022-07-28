@@ -608,8 +608,8 @@ function animate() {
     player.update(); monsters1.draw(); monsters2.draw(); monsters3.draw(); monsters4.draw(); monsters5.draw(); monsters6.draw(); heart1.draw(), heart2.draw(), heart3.draw(), heart4.draw(), heart5.draw();
     platforms.forEach(platform => platform.draw());
     edges.forEach(edge => edge.draw());
-    if (keys.right.pressed) player.postion.x += 10;
-    if (keys.left.pressed) player.postion.x -= 10;
+    if (keys.right.pressed) player.postion.x += 5;
+    if (keys.left.pressed) player.postion.x -= 5;
 
     // PLATFORM COLISION
     platforms.forEach(platform => {
