@@ -142,6 +142,30 @@ pwr4.src = './src/media/sprite/walkRight4.png'
 const pwr5 = new Image();
 pwr5.src = './src/media/sprite/walkRight5.png'
 
+const al1 = new Image();
+al1.src = './src/media/sprite/attackLeft0.png'
+
+const al2 = new Image();
+al2.src = './src/media/sprite/attackLeft1.png'
+
+const al3 = new Image();
+al3.src = './src/media/sprite/attackLeft2.png'
+
+const al4 = new Image();
+al4.src = './src/media/sprite/attackLeft3.png'
+
+const ar1 = new Image();
+ar1.src = './src/media/sprite/attackRight0.png'
+
+const ar2 = new Image();
+ar2.src = './src/media/sprite/attackRight1.png'
+
+const ar3 = new Image();
+ar3.src = './src/media/sprite/attackRight2.png'
+
+const ar4 = new Image();
+ar4.src = './src/media/sprite/attackRight3.png'
+
 
 // SPRITE END
 
@@ -186,15 +210,24 @@ class Player{
             },
             attack: {
                 right: attackRight, cropWidth: 73.3, width: 67.3, height: 80, 
-                left: attackLeft, cropWidth: 73.3, width: 67.3, height: 80 
+                left: attackLeft, cropWidth: 73.3, width: 67.3, height: 80,
+                al1: al1, cropWidth: 73.3, width: 67.3, height: 80,
+                al2: al2, cropWidth: 73.3, width: 67.3, height: 80,
+                al3: al3, cropWidth: 73.3, width: 67.3, height: 80,
+                al4: al4, cropWidth: 73.3, width: 67.3, height: 80,
+                ar1: ar1, cropWidth: 73.3, width: 67.3, height: 80,
+                ar2: ar2, cropWidth: 73.3, width: 67.3, height: 80,
+                ar3: ar3, cropWidth: 73.3, width: 67.3, height: 80,
+                ar4: ar4, cropWidth: 73.3, width: 67.3, height: 80
+
             }
             
         }
         this.currentSprite = this.sprites.stand.left
-        this.currentCropWidth = 60.8
+        this.currentCropWidth = 65.8
     }
     draw() {
-        ctx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth, this.currentSprite.height,
+        ctx.drawImage(this.currentSprite, this.currentCropWidth * 0, 0, this.currentCropWidth, this.currentSprite.height,
             this.postion.x, this.postion.y, this.width, this.height);
     }
 
@@ -288,7 +321,7 @@ class Monster3 { // blue mushroom
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 1000, 290, this.currentCropWidth, this.currentSprite.height+10);
+        ctx.drawImage(this.currentSprite, 1000, 290, this.currentCropWidth, this.currentSprite.height+15);
     }
     update() {
         this.draw();
@@ -310,7 +343,7 @@ class Monster4 { // Green mushroom
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 520, 70, this.currentCropWidth, this.currentSprite.height-20); 
+        ctx.drawImage(this.currentSprite, 520, 70, this.currentCropWidth, this.currentSprite.height+5); 
     }
     update() {
         this.draw();
@@ -332,7 +365,7 @@ class Monster5 { // Orange mushroom
         this.currentCropWidth = 100
     }
     draw() {
-        ctx.drawImage(this.currentSprite, 580, 290, this.currentCropWidth, this.currentSprite.height); // middle slime
+        ctx.drawImage(this.currentSprite, 580, 290, this.currentCropWidth, this.currentSprite.height+15); // middle slime
     }
     update() {
         this.draw();
@@ -525,8 +558,8 @@ var playerFrames = 0;
 
 function animate() {
     requestAnimationFrame(animate);
-    monsterFrames += .1;
-    playerFrames += .1;
+    monsterFrames += 4;
+    playerFrames += 4;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.update(); monsters1.draw(); monsters2.draw(); monsters3.draw(); monsters4.draw(); monsters5.draw(); monsters6.draw(); heart1.draw(), heart2.draw(), heart3.draw(), heart4.draw(), heart5.draw();
     platforms.forEach(platform => platform.draw());
@@ -558,175 +591,139 @@ function animate() {
     // End of attack
 
     // Player Hurt
-    // // slime    
-    // if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && life.slime.dead === false) {  // slime left side
-    //     health -= 10;
-    //     player.postion.x -= 100;
-    // }
-    // if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x === 420 && life.slime.dead === false) { // slime right side
-    //     health -= 10;
-    //     player.postion.x += 100;
-    // }
-    // // pig
-    // if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
-    //     health -= 10;
-    //     player.postion.x -= 100;
-    // }
-    // if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 990 && life.pig.dead === false) {  // pig right side
-    //     health -= 10;
-    //     player.postion.x += 100;
-    // }
-    // // orange mushroom
-    // if (player.postion.x === 580 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.orangeMushroom.dead === false) { // pig left side
-    //     health -= 10;
-    //     player.postion.x -= 100;
-    // }
-    // if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 640 && life.orangeMushroom.dead === false) {  // pig right side
-    //     health -= 10;
-    //     player.postion.x += 100;
-    // }
-    // // blue mushroom
-    // if (player.postion.x === 985 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.blueMushroom.dead === false) { // pig left side
-    //     health -= 10;
-    //     player.postion.x -= 100;
-    // }
-    // if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 1050 && life.blueMushroom.dead === false) {  // pig right side
-    //     health -= 10;
-    //     player.postion.x += 100;
-    // }
-    // // green mushroom
-    // if (player.postion.x === 500 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.greenMushroom.dead === false) { // pig left side
-    //     health -= 10;
-    //     player.postion.x -= 100;
-    // }
-    // if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 580 && life.greenMushroom.dead === false) {  // pig right side
-    //     health -= 10;
-    //     player.postion.x += 100;
-    // }
-    // // pink bean
-    // if (player.postion.x === 980 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.pinkBean.dead === false) { // pig left side
-    //     health -= 10;
-    //     player.postion.x -= 100;
-    // }
-    // if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 1050 && life.pinkBean.dead === false) {  // pig right side
-    //     health -= 10;
-    //     player.postion.x += 100;
-    // }
-    // // End of Player Hurt
+    // slime    
+    if (player.postion.x === 375 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && life.slime.dead === false) {  // slime left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 510 && player.postion.y <= 530 && player.postion.x === 420 && life.slime.dead === false) { // slime right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // pig
+    if (player.postion.x === 935 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && life.pig.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 527.5 && player.postion.y <= 528.5 && player.postion.x === 990 && life.pig.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // orange mushroom
+    if (player.postion.x === 580 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.orangeMushroom.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 640 && life.orangeMushroom.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // blue mushroom
+    if (player.postion.x === 985 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && life.blueMushroom.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 280 && player.postion.y <= 285 && player.postion.x === 1050 && life.blueMushroom.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // green mushroom
+    if (player.postion.x === 500 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.greenMushroom.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 580 && life.greenMushroom.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // pink bean
+    if (player.postion.x === 980 && (keys.right.pressed === true || keys.left.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && life.pinkBean.dead === false) { // pig left side
+        health -= 10;
+        player.postion.x -= 100;
+    }
+    if ((keys.left.pressed === true || keys.right.pressed === true) && player.postion.y >= 40 && player.postion.y <= 45 && player.postion.x === 1050 && life.pinkBean.dead === false) {  // pig right side
+        health -= 10;
+        player.postion.x += 100;
+    }
+    // End of Player Hurt
 
     // console.log(monsterFrames);
 
-    if (monsterFrames >= 1 && monsterFrames <= 4) {
+    if (monsterFrames >= 1 && monsterFrames <= 30) {
         monsters2.currentSprite = monsters2.sprites.slime.s1;
-        monsters2.currentCropWidth = 70;
-        monsters2.currentSprite.height = 50;
     }
 
-    if (monsterFrames >= 4 && monsterFrames <= 7) {
+    if (monsterFrames >= 31 && monsterFrames <= 60) {
         monsters2.currentSprite = monsters2.sprites.slime.s2;
-        monsters2.currentCropWidth = 70;
-        monsters2.currentSprite.height = 50;
     }
 
-    if (monsterFrames >=  2 && monsterFrames <= 5) {
+    if (monsterFrames >=  1 && monsterFrames <= 30) {
         monsters1.currentSprite = monsters1.sprites.pig.p2;
-        monsters1.currentCropWidth = 70;
-        monsters1.currentSprite.height = 50;
     }
 
-    if (monsterFrames >= 6 && monsterFrames <= 8) {
+    if (monsterFrames >= 31 && monsterFrames <= 60) {
         monsters1.currentSprite = monsters1.sprites.pig.left;
-        monsters1.currentCropWidth = 70;
-        monsters1.currentSprite.height = 50;
     }
 
-    if (monsterFrames >= 1 && monsterFrames <= 4) {
+    if (monsterFrames >= 1 && monsterFrames <= 20) {
         monsters3.currentSprite = monsters3.sprites.golem.b1;
-        monsters3.currentCropWidth = 70;
-        monsters3.currentSprite.height = 70;
     }
 
-    if (monsterFrames >= 5 && monsterFrames <= 8) {
+    if (monsterFrames >= 21 && monsterFrames <= 40) {
         monsters3.currentSprite = monsters3.sprites.golem.b2;
-        monsters3.currentCropWidth = 70;
-        monsters3.currentSprite.height = 70;
     }
 
-    if (monsterFrames >= 11 && monsterFrames <= 14) {
+    if (monsterFrames >= 41 && monsterFrames <= 60) {
         monsters3.currentSprite = monsters3.sprites.golem.left;
-        monsters3.currentCropWidth = 70;
-        monsters3.currentSprite.height = 70;
     }
 
-    if (monsterFrames >= 2 && monsterFrames <= 5) {
+    if (monsterFrames >= 1 && monsterFrames <= 20) {
         monsters5.currentSprite = monsters5.sprites.barlog.o1
-        monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 80;
     }
 
-    if (monsterFrames >= 6 && monsterFrames <= 9) {
+    if (monsterFrames >= 21 && monsterFrames <= 40) {
         monsters5.currentSprite = monsters5.sprites.barlog.o2
-        monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 80;
     }
 
-    if (monsterFrames >= 10 && monsterFrames <= 13) {
+    if (monsterFrames >= 41 && monsterFrames <= 60) {
         monsters5.currentSprite = monsters5.sprites.barlog.left
-        monsters5.currentCropWidth = 70;
-        monsters5.currentSprite.height = 80;
-        // monsterFrames = 0;
     }
 
-    if (monsterFrames >= 2 && monsterFrames <= 5) {
+    if (monsterFrames >= 1 && monsterFrames <= 20) {
         monsters4.currentSprite = monsters4.sprites.metal.g1
-        monsters4.currentCropWidth = 70;
-        monsters4.currentSprite.height = 80;
     }
 
-    if (monsterFrames >= 6 && monsterFrames <= 9) {
+    if (monsterFrames >= 21 && monsterFrames <= 40) {
         monsters4.currentSprite = monsters4.sprites.metal.g2
-        monsters4.currentCropWidth = 70;
-        monsters4.currentSprite.height = 80;
     }
 
-    if (monsterFrames >= 10 && monsterFrames <= 13) {
+    if (monsterFrames >= 41 && monsterFrames <= 60) {
         monsters4.currentSprite = monsters4.sprites.metal.left
-        monsters4.currentCropWidth = 70;
-        monsters4.currentSprite.height = 80;
     }
 
-    if (monsterFrames >= 2 && monsterFrames <= 5) {
+    if (monsterFrames >= 1 && monsterFrames <= 12) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p1
-        monsters6.currentCropWidth = 100;
-        monsters6.currentSprite.height = 100;
     }
 
-    if (monsterFrames >= 6 && monsterFrames <= 9) {
+    if (monsterFrames >= 13 && monsterFrames <= 24) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.pp2
-        monsters6.currentCropWidth = 100;
-        monsters6.currentSprite.height = 100;
     }
 
-    if (monsterFrames >= 10 && monsterFrames <= 13) {
+    if (monsterFrames >= 25 && monsterFrames <= 36) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p3
-        monsters6.currentCropWidth = 120;
-        monsters6.currentSprite.height = 100;
     }
 
-    if (monsterFrames >= 14 && monsterFrames <= 17) {
+    if (monsterFrames >= 37 && monsterFrames <= 48) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p4
-        monsters6.currentCropWidth = 120;
-        monsters6.currentSprite.height = 100;
     }
 
-    if (monsterFrames >= 18 && monsterFrames <= 21) {
+    if (monsterFrames >= 49 && monsterFrames <= 60) {
         monsters6.currentSprite = monsters6.sprites.pinkBean.p5
-        monsters6.currentCropWidth = 120;
-        monsters6.currentSprite.height = 100;
-        monsterFrames = 0;
     }
 
-    console.log(playerFrames);
+    if (monsterFrames === 60) monsterFrames = 0;
+
+    // console.log(playerFrames);
     if (playerFrames >= 1 && playerFrames <= 15 && keys.left.pressed === true) {
         player.currentSprite = player.sprites.walk.pw1
     }
@@ -738,28 +735,54 @@ function animate() {
     }
     if (playerFrames >= 46 && playerFrames <= 60 && keys.left.pressed === true) {
         player.currentSprite = player.sprites.walk.pw4
-        // playerFrames = 0;
     }
 
-    if (playerFrames >= 1 && playerFrames <= 15 && keys.right.pressed === true) {
+    if (playerFrames >= 1 && playerFrames <= 20 && keys.right.pressed === true) {
         player.currentSprite = player.sprites.walk.pwr2
     }
-    if (playerFrames >= 16 && playerFrames <= 30 && keys.right.pressed === true) {
+    if (playerFrames >= 21 && playerFrames <= 40 && keys.right.pressed === true) {
         player.currentSprite = player.sprites.walk.pwr3
     }
-    if (playerFrames >= 31 && playerFrames <= 45 && keys.right.pressed === true) {
+    if (playerFrames >= 41 && playerFrames <= 60 && keys.right.pressed === true) {
         player.currentSprite = player.sprites.walk.pwr4
     }
     if (playerFrames >= 46 && playerFrames <= 60 && keys.right.pressed === true) {
         player.currentSprite = player.sprites.walk.pwr5
-        playerFrames = 0
     }
 
+    if (playerFrames >= 1 && playerFrames <= 12 && keys.attackk.pressed === true) {
+        player.currentSprite = player.sprites.attack.left
+    }
+    if (playerFrames >= 13 && playerFrames <= 24 && keys.attackk.pressed === true) {
+        player.currentSprite = player.sprites.attack.al1
+    }
+    if (playerFrames >= 25 && playerFrames <= 36 && keys.attackk.pressed === true) {
+        player.currentSprite = player.sprites.attack.al2
+    }
+    if (playerFrames >= 37 && playerFrames <= 48 && keys.attackk.pressed === true) {
+        player.currentSprite = player.sprites.attack.al3
+    }
+    if (playerFrames >= 49 && playerFrames <= 60 && keys.attackk.pressed === true) {
+        player.currentSprite = player.sprites.attack.al4
+    }
 
+    if (playerFrames >= 1 && playerFrames <= 12 && keys.attackj.pressed === true) {
+        player.currentSprite = player.sprites.attack.right
+    }
+    if (playerFrames >= 13 && playerFrames <= 24 && keys.attackj.pressed === true) {
+        player.currentSprite = player.sprites.attack.ar1
+    }
+    if (playerFrames >= 25 && playerFrames <= 36 && keys.attackj.pressed === true) {
+        player.currentSprite = player.sprites.attack.ar2
+    }
+    if (playerFrames >= 37 && playerFrames <= 48 && keys.attackj.pressed === true) {
+        player.currentSprite = player.sprites.attack.ar3
+    }
+    if (playerFrames >= 49 && playerFrames <= 60 && keys.attackj.pressed === true) {
+        player.currentSprite = player.sprites.attack.ar4
+    }
 
-
-
-
+    if (playerFrames === 60) playerFrames = 0;
 
     // Monster Death
     if (slimeHealth <= 0) {
