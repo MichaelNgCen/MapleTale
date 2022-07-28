@@ -1,8 +1,6 @@
 
 document.addEventListener('DOMContentLoaded',  () => {
     const main = document.getElementById('main');
-
-    
     // get element by id
     const title = document.getElementById('titleScreen');
     const game = document.getElementById('game');
@@ -10,6 +8,10 @@ document.addEventListener('DOMContentLoaded',  () => {
     const linkedin = document.getElementById('linkedin');
     const github = document.getElementById('github');
     const info = document.getElementById('info');
+    const playButton = document.getElementById('playButton');
+    const stopButton = document.getElementById('stopButton');
+    const bgm = document.getElementById('bgm');
+
     console.log(title);
     title.addEventListener("click", (e) => {
         title.style.display = "none";
@@ -33,5 +35,17 @@ document.addEventListener('DOMContentLoaded',  () => {
         game.style.display = "none";
         instructions.style.display = "block";
     });
+
+    playButton.addEventListener('click', () => {
+        bgm.play();
+        playButton.style.display = "none";
+        stopButton.style.display = "block";
+      });
+      stopButton.addEventListener('click', () => {
+        bgm.pause();
+        playButton.style.display = "block";
+        stopButton.style.display = "none";
+      });
+      
     
 });

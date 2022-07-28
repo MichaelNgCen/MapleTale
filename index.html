@@ -17,6 +17,9 @@
 <div id="titleScreen">
     <p class="title-screen">MapleTale 🍁</p>
     <img src="src/media/titlebg.png" id="tb">
+    <div id="tt">
+      <img src="src/media/tt.png" id="tt">
+    </div>
 </div>
 <div id="instructionScreen">
     <img src="src/media/mychat.png" id="npcChat2">
@@ -33,21 +36,9 @@
 <div id="info">
   <img src="src/media/npcChat5.png" id="npcChat5">
 </div>
-<button id="playButton">Play Background Music</button>
-<button id="stopButton">Stop Background Music</button>
+<button id="playButton">Play Music</button>
+<button id="stopButton">Stop Music</button>
 <audio id="bgm" src="src/media/bgm.mp3" type="audio/mpeg"></audio>
-<audio id="jump" src="src/media/jumpSound.mp3" type="audio/mpeg"></audio>
-<script>
-  const playButton = document.getElementById('playButton');
-  const stopButton = document.getElementById('stopButton');
-  const bgm = document.getElementById('bgm');
-  playButton.addEventListener('click', () => {
-    bgm.play();
-  });
-  stopButton.addEventListener('click', () => {
-    bgm.pause();
-  });
-</script>
 
 <div id="container">
   <img src="src/media/bg.png" id="background">

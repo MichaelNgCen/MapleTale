@@ -33,9 +33,12 @@
 }
 
 #playButton {
-    background-color: orange;
+    font-family: 'Press Start 2P', cursive;;
+    background-color: rgb(130, 255, 161);
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
     position: fixed;
-    top: 670px;
+    top: 660px;
     left: 1110px;
     z-index: 1002; 
     transform: translate(-50%, -50%);
@@ -52,19 +55,16 @@
 
 #tb{
     position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
+    left: 1;
+    bottom: 1;
+    z-index: -1;
 }
 
 #ib{
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    z-index: -5;
+    height: 100;
+    z-index: -1;
 }
 
 #npcChat2 {
@@ -73,7 +73,7 @@
     align-items: center;
     justify-content: center;
     width: 35%;
-    height: 25%;
+    height: 23%;
     flex-direction: column;
     margin-top: 30vh;
     margin-left: 33vw;
@@ -82,25 +82,44 @@
 #npcChat3{
     z-index: 1003;
     position: fixed;
-    align-items: center;
-    margin-top: 5vh;
-    margin-left: 72vw;
+    margin-top: 690px;
+    margin-left: 460px;
+    width: 350px;
+    height: 133px;
 }
 
 #npcChat4{
     z-index: 1003;
     position: fixed;
-    align-items: center;
-    margin-top: 30vh;
-    margin-left: 72vw;
+    margin-top: 690px;
+    margin-left: 10px;
+    width: 350px;
+    height: 133px;
 }
 
 #npcChat5{
     z-index: 1003;
     position: fixed;
-    align-items: center;
-    margin-top: 55vh;
-    margin-left: 72vw;
+    margin-top: 690px;
+    margin-left: 910px;
+    width: 350px;
+    height: 133px;
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 50px;
+    width: 80px;
+    border: none;
+  }
+
+#tt{
+    position: absolute;
+    width: 350px;
+    height: 133px;
+    margin-top: 150px;
+    margin-left: -40px;
 }
 
 .slide {
@@ -125,21 +144,14 @@
 }
 
 #stopButton {
-    background-color: orange;
+    display: none;
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgb(255, 60, 60);
     position: fixed;
-    top: 690px;
+    border-radius: 50%;
+    top: 660px;
     left: 1110px;
-    z-index: 10002;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 0; 
-}
-#linkedInButton {
-    background-color: lightblue;
-    position: fixed;
-    top: 710px;
-    left: 1110px;
-    z-index: 1;
+    z-index: 1002; 
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0; 
@@ -151,7 +163,6 @@ canvas{
     left: 0;
     outline: none;
 }
-
 html,
 body
 {
