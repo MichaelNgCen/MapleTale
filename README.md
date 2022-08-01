@@ -32,7 +32,7 @@ Instruction Screen
 
 <img width="550" alt="Screen Shot 2022-07-31 at 8 03 27 PM" src="https://user-images.githubusercontent.com/38708266/182051030-0fd0444f-dd65-47a3-b9eb-2039be25212c.png">
 
-Instruction screen code: Use event listener to play both audio after clicking, and hides title screen while displaying instruction screen
+Instruction screen code: Use event listener to pause music, play new music after clicking, and hides instruction screen while displaying game screen
 
 <img width="275" alt="Screen Shot 2022-08-01 at 3 24 03 PM" src="https://user-images.githubusercontent.com/38708266/182229726-937903a3-eba6-4ac4-b657-5d2e8626903d.png">
 
