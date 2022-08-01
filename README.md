@@ -64,23 +64,23 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ✅ Add background music
 
 ### Day 3 - July 24, 2022
-✅ Make monster's spirte
+✅ Make monsters' spirte
 
 ✅ Create monsters
 
 ### Day 4 - July 25, 2022
 ✅ Add monsters's sprite
 
-✅ Collison map's edge
+✅ Collison map's edges
 
 ✅ Added new cursor
 
 ### Day 5 - July 26, 2022
 ✅ Add new monsters
 
-✅ Player / Monster get hit
+✅ Player / monsters get hit
 
-✅ Player / Monster faint
+✅ Player / monsters faint
 
 ✅ Win / Lose
 
@@ -88,14 +88,14 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ### Day 6 - July 27, 2022
 
-✅ Made title and instruction
+✅ Made title screen and instruction screen
 
-✅ Added Monster Animation
+✅ Added monsters Animation
 
 ✅ Links to LinkedIn/GitHub
 
 ### Day 7 - July 28, 2022
-✅ Sound for attack and jump
+✅ Sounds for attack and jump
 
 ✅ Favicon
 
