@@ -10,11 +10,12 @@ https://michaelngcen.github.io/MapleTale/
 In MapleTale, players will be able to:
 - Move around using the keyboard
 - Attack monsters
-- Heart that goes down when taking 
+- Heart that goes down when taking damage
 - Turn off and on the bgm 
 
 In addition, this project will include:
 
+- Seperate title and instuction screen
 - Instructions on how to play
 - Sounds for jumping and attacking 
 
