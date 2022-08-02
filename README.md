@@ -94,17 +94,18 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ✅ Hearts
 
 ### Day 6 - July 27, 2022
-
 ✅ Made title screen and instruction screen
 
 ✅ Added monsters Animation
 
 ✅ Links to LinkedIn/GitHub
 
-### Day 7 - July 28, 2022
 ✅ Sounds for attack and jump
 
+### Day 7 - July 28, 2022
 ✅ Fix some bugs
+
+✅ Finish Styling 
 
 ✅ Deploy to GitHub
 
