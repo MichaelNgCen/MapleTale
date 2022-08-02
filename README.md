@@ -40,7 +40,7 @@ Game Screen
 
 ### Technologies, Libraries, and API's: 
 
-<img width="100" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182405626-df75a17d-be80-4a54-8e66-93cd0e3139c7.png">
+<img width="50" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182405626-df75a17d-be80-4a54-8e66-93cd0e3139c7.png">
 - Javascript
 - Canvas
 - CSS
