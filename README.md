@@ -39,9 +39,10 @@ Game Screen
 <img width="550" alt="Screen Shot 2022-07-31 at 8 03 35 PM" src="https://user-images.githubusercontent.com/38708266/182051057-5d0f663c-2102-4d8d-b667-65f116cfb978.png">
 
 ### Technologies, Libraries, and API's: 
+
+<img width="100" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182405626-df75a17d-be80-4a54-8e66-93cd0e3139c7.png">
 - Javascript
 - Canvas
-- HTML
 - CSS
 
 ### Implementation Timeline: 
