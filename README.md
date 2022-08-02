@@ -24,7 +24,9 @@ Title Screen
 
 - Event listener to play both audio after clicking, and hides title screen while displaying instruction screen
 
+<p align="center">
 <img width="275" alt="Screen Shot 2022-08-01 at 3 23 50 PM" src="https://user-images.githubusercontent.com/38708266/182229699-52fb891a-548c-4e3b-be5b-22bc38ae9d44.png">
+</p>
 
 Instruction Screen 
 
@@ -32,7 +34,9 @@ Instruction Screen
 
 - Event listener to pause music, play new music after clicking, and hides instruction screen while displaying game screen
 
+<p align="center">
 <img width="275" alt="Screen Shot 2022-08-01 at 3 24 03 PM" src="https://user-images.githubusercontent.com/38708266/182229726-937903a3-eba6-4ac4-b657-5d2e8626903d.png">
+</p>
 
 Game Screen
 
@@ -40,9 +44,7 @@ Game Screen
 
 ### Technologies, Libraries, and API's:
 
-<p align="center">
 <img width="250" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182409018-906da3fd-8c1c-4431-8e6a-79940058256c.png">
-</p>
 
 ### Implementation Timeline: 
 Below will loosely outline my plans on a day-to-day basis on how to actually research, build, and style the game.
