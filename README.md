@@ -41,9 +41,9 @@ Game Screen
 ### Technologies, Libraries, and API's: 
 
 <img width="50" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182405626-df75a17d-be80-4a54-8e66-93cd0e3139c7.png">
-- Javascript
-- Canvas
-- CSS
+<img width="50" alt="jsLogo" src="https://user-images.githubusercontent.com/38708266/182406816-2a9d2b63-2508-4db4-b497-3242d631ddc2.png">
+<img width="50" alt="cssLogo" src="https://user-images.githubusercontent.com/38708266/182406770-b548b2ba-e226-49a6-8c77-054fa02a3855.png">
+
 
 ### Implementation Timeline: 
 Below will loosely outline my plans on a day-to-day basis on how to actually research, build, and style the game.
