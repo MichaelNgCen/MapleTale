@@ -73,6 +73,8 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ✅ Create monsters
 
+✅ Favicon
+
 ### Day 4 - July 25, 2022
 ✅ Add monsters's sprite
 
@@ -102,9 +104,9 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 ### Day 7 - July 28, 2022
 ✅ Sounds for attack and jump
 
-✅ Favicon
-
 ✅ Fix some bugs
+
+✅ Deploy to GitHub
 
 ### Future Implementations:
 
