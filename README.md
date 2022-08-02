@@ -24,9 +24,7 @@ Title Screen
 
 - Event listener to play both audio after clicking, and hides title screen while displaying instruction screen
 
-<p align="center">
 <img width="275" alt="Screen Shot 2022-08-01 at 3 23 50 PM" src="https://user-images.githubusercontent.com/38708266/182229699-52fb891a-548c-4e3b-be5b-22bc38ae9d44.png">
-</p>
 
 Instruction Screen 
 
