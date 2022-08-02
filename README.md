@@ -110,6 +110,14 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ### Future Implementations:
 
+❌ Add ability to climb ropes
+
+❌ Win/Lose Screen
+
+❌ Added character select screen
+
+❌ Allow user to play as different character
+
 
 
 
