@@ -1,4 +1,3 @@
-<p align="center">
 # MapleTale: 2D Platform Game 🍁
 
 ### Description:
@@ -36,7 +35,6 @@ Instruction Screen
 - Event listener to pause music, play new music after clicking, and hides instruction screen while displaying game screen
 
 <img width="275" alt="Screen Shot 2022-08-01 at 3 24 03 PM" src="https://user-images.githubusercontent.com/38708266/182229726-937903a3-eba6-4ac4-b657-5d2e8626903d.png">
-</p>
 
 Game Screen
 
