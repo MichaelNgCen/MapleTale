@@ -110,9 +110,9 @@ Below will loosely outline my plans on a day-to-day basis on how to actually res
 
 ### Future Implementations:
 
-❌ Add ability to climb ropes
+👨‍💻 Win/Lose Screen
 
-❌ Win/Lose Screen
+❌ Add ability to climb ropes
 
 ❌ Added character select screen
 
