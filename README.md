@@ -40,8 +40,9 @@ Game Screen
 
 ### Technologies, Libraries, and API's:
 
-
+<p align="center">
 <img width="250" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182409018-906da3fd-8c1c-4431-8e6a-79940058256c.png">
+</p>
 
 ### Implementation Timeline: 
 Below will loosely outline my plans on a day-to-day basis on how to actually research, build, and style the game.
