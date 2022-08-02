@@ -38,12 +38,10 @@ Game Screen
 
 <img width="550" alt="Screen Shot 2022-07-31 at 8 03 35 PM" src="https://user-images.githubusercontent.com/38708266/182051057-5d0f663c-2102-4d8d-b667-65f116cfb978.png">
 
-### Technologies, Libraries, and API's: 
+### Technologies, Libraries, and API's:
 
-<img width="50" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182405626-df75a17d-be80-4a54-8e66-93cd0e3139c7.png">
-<img width="50" alt="jsLogo" src="https://user-images.githubusercontent.com/38708266/182407478-85226b82-ff91-41bf-8041-641987414e1c.png">
-<img width="50" alt="cssLogo" src="https://user-images.githubusercontent.com/38708266/182406770-b548b2ba-e226-49a6-8c77-054fa02a3855.png">
 
+<img width="50" alt="htmlLogo" src="https://user-images.githubusercontent.com/38708266/182408231-2c424c9e-1ac0-43b4-8880-a4ae944aae30.png">
 
 ### Implementation Timeline: 
 Below will loosely outline my plans on a day-to-day basis on how to actually research, build, and style the game.
