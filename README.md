@@ -1,8 +1,4 @@
-<p align="center">
-
 # MapleTale: 2D Platform Game 🍁
-  
-</p>
 
 ### Description:
 
