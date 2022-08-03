@@ -1,4 +1,6 @@
+<p align="center">
 # [MapleTale: 2D platform game](https://michaelngcen.github.io/MapleTale/) 🍁
+</p>
 
 ### Description:
 
