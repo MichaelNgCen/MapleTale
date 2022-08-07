@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://michaelngcen.github.io/MapleTale/" target=”_blank”>MapleTale: 2D Platform Game 🍁</a>
+<img width="550" alt="Screen Shot 2022-07-31 at 8 03 27 PM" src="https://user-images.githubusercontent.com/38708266/183272544-c9f1f71c-a6b8-43b7-ae22-c4d683c5d94c.png">
 </h1>
 
 ### Description:
